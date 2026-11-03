@@ -1,0 +1,17 @@
+<svg width="1440" height="106" viewBox="0 0 1440 106" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1440" height="106" fill="#252424"/>
+<g id="Landing Page" clip-path="url(#clip0_5745_11935)">
+<rect width="1440" height="10861" transform="translate(0 -9669)" fill="#FDFCF9"/>
+<g id="Frame 2147226322" clip-path="url(#clip1_5745_11935)">
+<path id="Vector 1428" d="M58.3654 81.2199L-75.6736 49.6604C-80.5523 48.5118 -84 44.158 -84 39.146C-84 33.2891 -79.3325 28.4992 -73.4775 28.3476L1529.7 -13.1586C1542.85 -13.4992 1553.7 -2.92935 1553.7 10.2284C1553.7 20.2689 1547.29 29.1899 1537.78 32.3974L1438.26 65.9484C1422.06 71.4101 1405.05 74.0916 1387.95 73.8794L1029.53 69.43L734.996 104.052C723.979 105.347 712.852 105.428 701.817 104.295L366.933 69.9098C363.826 69.5908 360.694 69.592 357.587 69.9134L175.584 88.7413C136.365 92.7984 96.7439 90.2561 58.3654 81.2199Z" fill="#FDFCF9"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5745_11935">
+<rect width="1440" height="10861" fill="white" transform="translate(0 -9669)"/>
+</clipPath>
+<clipPath id="clip1_5745_11935">
+<rect width="1637.7" height="106" fill="white" transform="matrix(1 0 0 -1 -84 106)"/>
+</clipPath>
+</defs>
+</svg>
