@@ -831,3 +831,5 @@ h1, h2, h3 { font-family: var(--sans); }
   .bento .card-copy { left: calc(22px * var(--inv, 1)); right: calc(22px * var(--inv, 1)); top: calc(24px * var(--inv, 1)); }
   .bento .card-copy h3 { white-space: normal; }
 }
+/* The canvas draws the footer word; drop the gradient-filled text underneath on every size */
+.foot-wordmark.lw-on { background: none !important; }

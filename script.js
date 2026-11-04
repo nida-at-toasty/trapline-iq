@@ -466,7 +466,12 @@
     { el: document.querySelector('.foot-lines'), text: document.querySelector('.foot-wordmark'), thin: 'rgba(255,255,255,0.07)', thick: 'rgba(255,255,255,0.34)' },
   ].filter((m) => m.el);
   const pointer = { x: -1e4, y: -1e4 };
-  window.addEventListener('pointermove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; }, { passive: true });
+  window.addEventListener('pointermove', (e) => {
+    // Touch has no hover: only mouse/pen bend the lines, so a tap doesn't leave a dent behind
+    if (e.pointerType === 'touch') return;
+    pointer.x = e.clientX; pointer.y = e.clientY;
+  }, { passive: true });
+  document.addEventListener('pointerleave', () => { pointer.x = pointer.y = -1e4; });
 
   marks.forEach((m) => {
     const el = m.el;
@@ -487,11 +492,11 @@
       const t = m.text;
       const cs = getComputedStyle(t);
       // Text box position inside the line area (both sit on the same stage)
-      // Measured from rects so it holds whether both share a stage or the text flows (mobile)
-      const er = el.getBoundingClientRect(), tr = t.getBoundingClientRect();
-      const k = er.width / w || 1;
-      const ox = (tr.left - er.left) / k;
-      const oy = (tr.top - er.top) / k;
+      // Layout offsets (ignore transforms like the reveal's slide or the stage scale)
+      const abs = (e) => { let x = 0, y = 0; for (; e; e = e.offsetParent) { x += e.offsetLeft; y += e.offsetTop; } return [x, y]; };
+      const [tx0, ty0] = abs(t), [ex0, ey0] = abs(el);
+      const ox = tx0 - ex0;
+      const oy = ty0 - ey0;
       gap = w < 700 ? 4 : 7;
       const tw = t.offsetWidth;
       const th = t.offsetHeight;
