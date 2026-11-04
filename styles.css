@@ -881,3 +881,30 @@ h1, h2, h3 { font-family: var(--sans); }
   /* A transform or backdrop-filter on the nav would trap the fixed menu inside it */
   .nav.open { transform: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 }
+/* Trip card: larger on the map (90% instead of 72%) */
+.trip-pop { width: 664.2px; height: 435.6px; }
+.trip-card { transform: scale(0.9); }
+
+/* Store badges are pill-shaped: clip to a pill so no rectangle shows behind them */
+.cta-stores a { display: inline-block; border-radius: 999px; line-height: 0; }
+.cta-stores img, .cta-stores img:hover, .cta-stores img:active { border-radius: 999px; filter: none; }
+.cta-stores a:hover img { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,.35); }
+.cta-stores a:active img { transform: translateY(0) scale(.97); box-shadow: none; }
+.cta-stores img { transition: transform .25s ease, box-shadow .25s ease; }
+
+/* Bento copy: same rendered size on every card, with a soft halo so it reads over photos */
+.bento .card-copy h3 { font-size: calc(26px * var(--inv, 1)) !important; line-height: 1.15; white-space: normal; }
+.bento .card-copy p { font-size: calc(15px * var(--inv, 1)) !important; line-height: 1.4; max-width: calc(300px * var(--inv, 1)); }
+.bento .card-copy { left: calc(28px * var(--inv, 1)); right: calc(28px * var(--inv, 1)); top: calc(28px * var(--inv, 1)); gap: calc(8px * var(--inv, 1)); }
+.bento .card-copy:not(.on-dark) h3, .bento .card-copy:not(.on-dark) p { text-shadow: 0 0 calc(14px * var(--inv, 1)) rgba(255,255,255,.95), 0 0 calc(4px * var(--inv, 1)) rgba(255,255,255,.9); }
+.bento .card-copy:not(.on-dark) p { color: #4f4c45; }
+.bento .card-copy.on-dark h3, .bento .card-copy.on-dark p { text-shadow: 0 1px calc(14px * var(--inv, 1)) rgba(0,0,0,.55); }
+@media (max-width: 760px) {
+  .bento .card-copy h3 { font-size: calc(22px * var(--inv, 1)) !important; }
+  .bento .card-copy p { font-size: calc(14px * var(--inv, 1)) !important; }
+  .bento .card-copy { left: calc(22px * var(--inv, 1)); right: calc(22px * var(--inv, 1)); top: calc(24px * var(--inv, 1)); }
+
+  /* Menu Download button: centred label, arrow centred vertically */
+  .nav-menu .btn-solid.animated-button { justify-content: center !important; padding: 0 56px !important; height: 56px !important; }
+  .nav-menu .btn-solid.animated-button img { top: 50% !important; margin-top: 0 !important; transform: translateY(-50%); }
+}
