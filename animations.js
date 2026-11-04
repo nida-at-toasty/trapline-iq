@@ -335,3 +335,37 @@
     }
   });
 })();
+
+// For Trappers photo deck: scrolling turns the photos like book pages. The card at `pos` lies flat
+// in the middle; the others fold back on either side and stack tightly, like pages of an open book.
+(function () {
+  const stage = document.querySelector('.flip-stage');
+  if (!stage || !window.gsap) return;
+  const cards = gsap.utils.toArray('.flip-card', stage);
+  const n = cards.length;
+  const state = { pos: 0 };
+  const render = () => {
+    const cw = cards[0].offsetWidth;
+    cards.forEach((c, i) => {
+      const d = i - state.pos, a = Math.abs(d), s = Math.sign(d);
+      const near = Math.min(a, 1); // 0 = flat in the middle, 1 = fully folded
+      const x = s * (near * cw * 0.62 + Math.max(a - 1, 0) * cw * 0.085);
+      gsap.set(c, {
+        x, z: -near * 140 - Math.max(a - 1, 0) * 18, rotationY: -s * near * 68,
+        zIndex: Math.round(1000 - a * 10), opacity: a > 7 ? 0 : 1,
+      });
+      c.style.setProperty('--shade', (near * 0.35).toFixed(2));
+    });
+  };
+  render();
+  const to = (p) => gsap.to(state, { pos: Math.max(0, Math.min(n - 1, p)), duration: 0.8, ease: 'power3.out', onUpdate: render });
+  if (window.ScrollTrigger) {
+    // Pinned while the pages turn; scrubbed so scrolling back turns them back
+    ScrollTrigger.create({
+      trigger: stage, start: 'center center', end: () => '+=' + n * 90, pin: stage.closest('section'), scrub: true,
+      onUpdate: (st) => { gsap.to(state, { pos: st.progress * (n - 1), duration: 0.5, ease: 'power2.out', overwrite: true, onUpdate: render }); },
+    });
+  }
+  cards.forEach((c, i) => c.addEventListener('click', () => to(i)));
+  window.addEventListener('resize', render);
+})();
