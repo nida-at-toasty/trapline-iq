@@ -8,6 +8,7 @@
     const H = +stage.dataset.h;
     const copy = card.classList.contains('bento') ? stage.querySelector('.card-copy') : null;
     let head = null;
+    const ratio = card.style.aspectRatio;
     if (copy) {
       // Mobile header: the card copy moves above the art so it never overlaps it
       head = document.createElement('div');
@@ -35,7 +36,7 @@
         const hh = mobile ? head.offsetHeight : 0;
         stage.style.top = hh + 'px';
         card.style.height = mobile ? hh + H * k + 'px' : '';
-        card.style.aspectRatio = mobile ? 'auto' : '';
+        card.style.aspectRatio = mobile ? 'auto' : ratio; // keep the card's own inline ratio on desktop
       }
       evenBentoText();
     }).observe(card);
