@@ -933,3 +933,34 @@ h1, h2, h3 { font-family: var(--sans); }
 /* Phones that sit on a card's bottom edge stay put (the bob showed a gap at the clip) */
 .pl-phone { animation: none !important; }
 .bento.journal .float:not(.still) { z-index: 2; }
+/* For Trappers: testimonials as a fanned deck of cards that spreads out on scroll */
+.pg-fan { position: relative; height: 520px; margin-top: 24px; }
+.fan-card {
+  position: absolute; left: 50%; top: 40px; width: 300px; height: 410px; margin-left: -150px;
+  display: flex; flex-direction: column; gap: 22px; padding: 26px 26px 22px;
+  background: #fffdf7; color: #211f1b; border-radius: 22px; border: 1px solid rgba(49,61,31,.08);
+  box-shadow: 0 18px 50px rgba(49,61,31,.16), 0 2px 6px rgba(49,61,31,.06);
+  transform-origin: 50% 90%; will-change: transform;
+}
+.fan-card.is-dark { background: #313d1f; color: #f8f6ef; border-color: rgba(255,255,255,.06); }
+.fan-top { display: flex; align-items: center; justify-content: space-between; }
+.fan-stars { display: flex; gap: 3px; }
+.fan-stars svg { width: 17px; height: 17px; fill: #e2582c; }
+.fan-card.is-dark .fan-stars svg { fill: #b9de7a; }
+.fan-tag { font: 700 10px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+.fan-card p { font-size: 19px; line-height: 1.42; letter-spacing: -.01em; }
+.fan-card footer { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+.fan-card footer img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.fan-card footer span { display: flex; flex-direction: column; gap: 2px; }
+.fan-card footer b { font-size: 14px; }
+.fan-card footer small { font-size: 12px; opacity: .65; }
+.fan-card:hover { z-index: 10 !important; }
+@media (max-width: 760px) {
+  /* Phones: a swipeable row; each card tilts slightly and straightens as it arrives */
+  .pg-fan { height: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px 24px 40px; margin: 8px -24px 0; scrollbar-width: none; }
+  .pg-fan::-webkit-scrollbar { display: none; }
+  .fan-card { position: relative; left: auto; top: auto; margin: 0; flex: 0 0 78%; height: auto; min-height: 360px; scroll-snap-align: center; }
+  .fan-card p { font-size: 17px; }
+}
+.fan-tag { white-space: nowrap; }
+@media (max-width: 760px) { .fan-stars svg { width: 14px; height: 14px; } .fan-top { gap: 8px; } }

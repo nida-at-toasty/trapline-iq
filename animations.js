@@ -309,3 +309,29 @@
   }
   gsap.delayedCall(1.6, step);
 })();
+
+// For Trappers testimonials: the cards start as a neat stack and fan out as you scroll past
+(function () {
+  const fan = document.querySelector('.pg-fan');
+  if (!fan || !window.gsap || !window.ScrollTrigger) return;
+  const cards = gsap.utils.toArray('.fan-card', fan);
+  const mid = (cards.length - 1) / 2;
+  gsap.matchMedia().add({ desktop: '(min-width: 761px)', phone: '(max-width: 760px)' }, (ctx) => {
+    if (ctx.conditions.desktop) {
+      const spread = () => Math.min(fan.clientWidth * 0.19, 230);
+      cards.forEach((c, i) => gsap.set(c, { zIndex: i + 1 }));
+      gsap.timeline({ scrollTrigger: { trigger: fan, start: 'top 85%', end: 'center 45%', scrub: 0.8, invalidateOnRefresh: true } })
+        .fromTo(cards, {
+          x: (i) => (i - mid) * 8, y: (i) => 60 + i * -4, rotation: (i) => (i - mid) * 2.5, scale: 0.92,
+        }, {
+          x: (i) => (i - mid) * spread(), y: (i) => Math.abs(i - mid) * 22, rotation: (i) => (i - mid) * 5, scale: 1,
+          ease: 'power2.out', stagger: 0.04,
+        });
+    } else {
+      cards.forEach((c, i) => gsap.from(c, {
+        y: 40, rotation: i % 2 ? 4 : -4, opacity: 0, duration: 0.8, ease: 'power3.out', delay: i * 0.08,
+        scrollTrigger: { trigger: fan, start: 'top 85%' },
+      }));
+    }
+  });
+})();
