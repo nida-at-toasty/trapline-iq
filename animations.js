@@ -411,3 +411,21 @@
     gsap.to('.ft-photos', { opacity: 0, scale: 1.12, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
   }
 })();
+
+// Testimonial fan: hovering a card lifts it, straightens it and brings it to the front
+(function () {
+  const cards = document.querySelectorAll('.fan-card');
+  if (!cards.length || !window.gsap) return;
+  cards.forEach((c) => {
+    c.addEventListener('mouseenter', () => {
+      if (window.innerWidth <= 760) return;
+      c.dataset.rot = gsap.getProperty(c, 'rotation');
+      c.dataset.y = gsap.getProperty(c, 'y');
+      gsap.to(c, { rotation: 0, y: -24, scale: 1.05, duration: 0.45, ease: 'power3.out' }); // no overwrite: keeps the scroll fan intact
+    });
+    c.addEventListener('mouseleave', () => {
+      if (window.innerWidth <= 760 || c.dataset.rot === undefined) return;
+      gsap.to(c, { rotation: +c.dataset.rot, y: +c.dataset.y, scale: 1, duration: 0.5, ease: 'power3.out' });
+    });
+  });
+})();

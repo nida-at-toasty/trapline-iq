@@ -133,8 +133,8 @@
   const fields = card.querySelectorAll('[data-k]');
   const link = map.querySelector('.trip-link line');
   const pins = [...map.querySelectorAll('.trip-pin')];
-  const POP_W = 664.2; // card at 90%
-  const POP_H = 435.6;
+  const POP_W = 590.4; // card at 80%
+  const POP_H = 387.2;
   const GAP = 48;
   let active = null;
   let tl = null;
