@@ -1000,3 +1000,7 @@ h1, h2, h3 { font-family: var(--sans); }
 @keyframes ss-ping { from { opacity: .8; transform: scale(.9); } to { opacity: 0; transform: scale(1.35); } }
 @media (max-width: 760px) { .ss-track { display: none; } .pg-season li::before { display: none; } }
 .flip-card img { max-width: none !important; }
+/* Deck photos as backgrounds: always fill the card. Circle-cropped gallery shots are zoomed so the
+   3:4 card sits inside the circle (card diagonal = circle diameter = 166.67% of card width) */
+.flip-card { background-color: #313d1f; background-size: cover; background-position: center; background-repeat: no-repeat; }
+.flip-card.is-round { background-size: 166.67% auto; }
