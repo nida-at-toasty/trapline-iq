@@ -1057,3 +1057,14 @@ h1, h2, h3 { font-family: var(--sans); }
 .ft-title .ft-w { display: inline; }
 .ft-hl { white-space: nowrap; }
 .ft-title .ft-hl { display: inline; }
+/* Hero photos live in the side gutters only: the copy column is capped so they never overlap it */
+.hero-page .hero-copy { max-width: 760px !important; }
+.hero-page .hero-copy h1 { font-size: clamp(44px, 4.6vw, 68px); }
+.ft-ph.p1 { left: max(2%, calc(50% - 380px - 250px)); top: 24%; width: 180px; height: 225px; }
+.ft-ph.p2 { left: max(6%, calc(50% - 380px - 190px)); top: 66%; width: 120px; height: 140px; }
+.ft-ph.p3 { right: max(2%, calc(50% - 380px - 250px)); top: 22%; width: 180px; height: 225px; }
+.ft-ph.p4 { right: max(5%, calc(50% - 380px - 210px)); top: 60%; width: 150px; height: 200px; }
+.ft-chip.c1 { left: max(4%, calc(50% - 380px - 230px)); top: 18%; }
+.ft-chip.c2 { right: max(3%, calc(50% - 380px - 240px)); top: 86%; }
+/* Not enough gutter for the photos below this width */
+@media (max-width: 1240px) { .ft-photos { display: none; } }

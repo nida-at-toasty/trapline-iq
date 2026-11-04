@@ -207,6 +207,7 @@
     'Trappers in 48 regions': 'Tramperos en 48 regiones',
     'use Trapline IQ on the line': 'usan Trapline IQ en la línea',
     'Trap 18 · Marten': 'Trampa 18 · Marta',
+    'Logging a beaver set': 'Registrando una trampa de castor',
     'Synced · 42 visits': 'Sincronizado · 42 visitas',
     'Life on the line.': 'La vida en la línea.',
     'Snowmobile runs, fur sheds and frozen lakes: a season through the eyes of the trappers who use Trapline IQ.': 'Recorridos en moto de nieve, cobertizos de pieles y lagos helados: una temporada vista por los tramperos que usan Trapline IQ.',
