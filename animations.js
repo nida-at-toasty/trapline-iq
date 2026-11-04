@@ -384,3 +384,30 @@
       onUpdate: (st) => items.forEach((li, i) => li.classList.toggle('ss-on', st.progress >= (i + 0.3) / items.length)) } });
   }
 })();
+
+// For Trappers hero: headline rises in, "trapper" gets a hand-drawn underline, the field photos
+// drop in around it, then drift with the mouse and slide apart as you scroll away
+(function () {
+  const hero = document.querySelector('.hero-page');
+  const title = hero && hero.querySelector('.ft-title');
+  if (!title || !window.gsap) return;
+  // (The headline itself fades in with the shared hero intro above)
+  const tl = gsap.timeline({ delay: 1.1 });
+  tl.to(title.querySelector('.ft-hl path'), { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut' })
+    .from(hero.querySelectorAll('.ft-cta, .ft-proof'), { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08 }, '-=0.5')
+    .from(hero.querySelectorAll('.ft-ph, .ft-chip'), { scale: 0.6, opacity: 0, y: 40, duration: 0.9, ease: 'back.out(1.7)', stagger: 0.1 }, '-=0.8');
+  const items = gsap.utils.toArray('.ft-ph, .ft-chip', hero);
+  // Gentle idle float
+  items.forEach((el, i) => gsap.to(el, { yPercent: i % 2 ? 6 : -6, duration: 3 + i * 0.4, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.5 }));
+  // Mouse parallax: nearer pieces move more
+  const movers = items.map((el, i) => ({ x: gsap.quickTo(el, 'x', { duration: 0.8, ease: 'power3.out' }), y: gsap.quickTo(el, 'y', { duration: 0.8, ease: 'power3.out' }), k: 14 + (i % 3) * 10 }));
+  hero.addEventListener('pointermove', (e) => {
+    const r = hero.getBoundingClientRect();
+    const dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
+    movers.forEach((m) => { m.x(dx * m.k); m.y(dy * m.k); });
+  });
+  // Scroll: pieces spread outwards and fade
+  if (window.ScrollTrigger) {
+    gsap.to('.ft-photos', { opacity: 0, scale: 1.12, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
+  }
+})();
