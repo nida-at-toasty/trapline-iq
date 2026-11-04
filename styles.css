@@ -926,3 +926,7 @@ h1, h2, h3 { font-family: var(--sans); }
   .bento .card-head .card-copy p { font-size: 14px !important; line-height: 1.45; max-width: 290px !important; }
   .bento .stage::after { display: none; }
 }
+/* Trip photo: plain rounded rectangle, no app chrome */
+.trip-photo-bar { display: none !important; }
+.trip-photo { clip-path: none !important; -webkit-mask: none !important; mask: none !important; border-radius: 20px !important; overflow: hidden; }
+.trip-photo-img { top: 0 !important; object-fit: cover; width: 100% !important; height: 100% !important; clip-path: none !important; -webkit-mask: none !important; mask: none !important; border-radius: 0 !important; }

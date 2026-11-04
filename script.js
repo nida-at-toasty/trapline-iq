@@ -94,19 +94,19 @@
 
   const TRIPS = [
     {
-      title: 'Kootenay backcountry', photo: 'assets/gallery/c4.jpg',
+      title: 'Kootenay backcountry', photo: 'assets/trappers/trip-river.jpg',
       distance: '6.1 km', transport: 'On foot', speed: '3.2 km/h', duration: '1h 54m',
       startTime: '8:05 AM', stop1: '01 · Marten box', stop1Note: 'After 1.4 mi · 10m stop',
       stop2: '02 · Ridge set', stop2Note: 'After 2.2 mi · 16 min stop', endTime: '9:59 AM', total: '3.8 mi total',
     },
     {
-      title: 'Great Slave Lake line', photo: 'assets/gallery/c9.jpg',
+      title: 'Great Slave Lake line', photo: 'assets/trappers/trip-lake.jpg',
       distance: '21.4 km', transport: 'Snowmobile', speed: '11.6 km/h', duration: '1h 51m',
       startTime: '9:10 AM', stop1: '01 · Lynx set', stop1Note: 'After 5.0 mi · 14m stop',
       stop2: '02 · Shore cabin', stop2Note: 'After 6.8 mi · 30 min stop', endTime: '11:01 AM', total: '13.3 mi total',
     },
     {
-      title: 'Churchill River run', photo: 'assets/gallery/c5.jpg',
+      title: 'Churchill River run', photo: 'assets/cards/visit-b.jpg',
       distance: '15.2 km', transport: 'Snowmobile', speed: '9.4 km/h', duration: '1h 37m',
       startTime: '7:30 AM', stop1: '01 · Beaver lodge', stop1Note: 'After 3.9 mi · 18m stop',
       stop2: '02 · Portage trail', stop2Note: 'After 4.1 mi · 9 min stop', endTime: '9:07 AM', total: '9.4 mi total',
@@ -118,7 +118,7 @@
       stop2: '02 · Creek crossing', stop2Note: 'After 3.7 mi · 24 min stop', endTime: '11:18 AM', total: '14.6 mi total',
     },
     {
-      title: 'Sept-Îles centre', photo: 'assets/gallery/c1.jpg',
+      title: 'Sept-Îles centre', photo: 'assets/trappers/trip-sunset.jpg',
       distance: '9.6 km', transport: '4x4 (ATV)', speed: '6.2 km/h', duration: '1h 33m',
       startTime: '6:48 AM', stop1: '01 · Trap 18', stop1Note: 'After 2.6 mi · 11m stop',
       stop2: '02 · Rivière Moisie', stop2Note: 'After 3.3 mi · 20 min stop', endTime: '8:21 AM', total: '6.0 mi total',
