@@ -798,3 +798,28 @@ h1, h2, h3 { font-family: var(--sans); }
   .cta-stores img { width: 100% !important; max-width: none !important; }
   .foot-wordmark { font-size: 16vw !important; margin: 24px 0 -1vw !important; padding: 0 !important; white-space: nowrap; }
 }
+/* Nav: links + download live in a menu; on desktop it's inline */
+.nav-menu { display: contents; }
+.nav-menu > a:not(.btn-solid) { order: -1; }
+.nav-toggle { display: none; }
+@media (max-width: 760px) {
+  .brand { flex-shrink: 0 !important; overflow: visible !important; }
+  .brand img { width: 30px !important; display: block; }
+  .brand span { display: inline !important; }
+  .nav { position: relative; }
+  .nav-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px;
+    padding: 0 11px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); cursor: pointer; }
+  .nav-toggle span { height: 2px; background: #fff; border-radius: 2px; transition: transform .25s, opacity .25s; }
+  .nav.open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+  .nav.open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-menu { display: flex; flex-direction: column; gap: 4px; position: absolute; top: calc(100% + 10px); left: 0; right: 0; z-index: 50;
+    padding: 12px; border-radius: 20px; background: rgba(20,26,12,.96); border: 1px solid rgba(255,255,255,.1);
+    backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .25s, transform .25s, visibility .25s; }
+  .nav.open .nav-menu { opacity: 1; visibility: visible; transform: none; }
+  .nav-menu > a:not(.btn-solid) { display: block !important; padding: 12px 10px; color: #fff; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav-menu .btn-solid.animated-button { display: flex !important; margin-top: 8px; justify-content: center; font-size: 15px !important; padding: 0 48px 0 16px !important; }
+  /* Store buttons: stacked, comfortable size rather than edge to edge */
+  .cta-stores img { width: 200px !important; }
+  .cta-stores a { width: auto; }
+}

@@ -461,7 +461,7 @@
     el.appendChild(canvas);
     m.text.classList.add('lw-on');
     const ctx = canvas.getContext('2d');
-    let w = 0, h = 0, dpr = 1, mask = null, visible = true;
+    let w = 0, h = 0, dpr = 1, mask = null, visible = true, gap = 7;
 
     // Draw the word into an offscreen canvas with the element's own font, and keep its alpha as a mask
     const build = () => {
@@ -473,8 +473,12 @@
       const t = m.text;
       const cs = getComputedStyle(t);
       // Text box position inside the line area (both sit on the same stage)
-      const ox = t.offsetLeft - el.offsetLeft;
-      const oy = t.offsetTop - el.offsetTop;
+      // Measured from rects so it holds whether both share a stage or the text flows (mobile)
+      const er = el.getBoundingClientRect(), tr = t.getBoundingClientRect();
+      const k = er.width / w || 1;
+      const ox = (tr.left - er.left) / k;
+      const oy = (tr.top - er.top) / k;
+      gap = w < 700 ? 4 : 7;
       const tw = t.offsetWidth;
       const th = t.offsetHeight;
       const off = document.createElement('canvas');
@@ -494,7 +498,6 @@
       return mask[(yi * w + xi) * 4 + 3] / 255;
     };
 
-    const GAP = 7; // px between lines
     const STEP = 4; // px between samples along a line
     const draw = (t) => {
       if (!mask) return;
@@ -507,7 +510,7 @@
       const py = (pointer.y - r.top) / sx;
       const thin = new Path2D();
       const thick = new Path2D();
-      for (let x0 = GAP / 2; x0 < w; x0 += GAP) {
+      for (let x0 = gap / 2; x0 < w; x0 += gap) {
         let prev = null;
         let prevIn = false;
         for (let y = -STEP; y <= h + STEP; y += STEP) {
@@ -530,7 +533,7 @@
       }
       ctx.lineCap = 'round';
       ctx.strokeStyle = m.thin; ctx.lineWidth = 1; ctx.stroke(thin);
-      ctx.strokeStyle = m.thick; ctx.lineWidth = 3.2; ctx.stroke(thick);
+      ctx.strokeStyle = m.thick; ctx.lineWidth = gap < 7 ? 2.4 : 3.2; ctx.stroke(thick);
     };
 
     const start = () => {
@@ -547,3 +550,10 @@
     (document.fonts ? document.fonts.ready : Promise.resolve()).then(start);
   });
 })();
+
+// Mobile nav menu toggle
+document.querySelectorAll('.nav-toggle').forEach((b) => {
+  const nav = b.closest('.nav');
+  b.addEventListener('click', () => b.setAttribute('aria-expanded', nav.classList.toggle('open')));
+  nav.querySelectorAll('.nav-menu a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }));
+});
