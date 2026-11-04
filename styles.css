@@ -668,10 +668,12 @@ h1, h2, h3 { font-family: var(--sans); }
     display: flex; flex-direction: column; padding: 0 24px 0;
   }
   .footer-stage > * { position: relative !important; left: auto !important; top: auto !important; }
-  .ft-bg, .ft-glow, .ft-cream, .foot-lines { display: none !important; }
-  .ft-wave { width: calc(100% + 48px) !important; height: 34px !important; margin: 0 -24px; order: 0; z-index: 2; }
+  .ft-bg, .ft-glow { display: none !important; }
+  /* Cream strip + wave at true proportions, so no photo shows above or below the wave */
+  .ft-cream { display: block; order: 0; width: calc(100% + 48px) !important; height: 2.8vw !important; margin: 0 -24px; z-index: 2; }
+  .ft-wave { order: 0; width: calc(100% + 48px) !important; height: auto !important; aspect-ratio: 1440 / 106; margin: -2.8vw -24px 0; z-index: 2; }
   .ft-photo {
-    order: 1; width: calc(100% + 48px) !important; height: 300px !important; margin: -34px -24px 0;
+    order: 1; width: calc(100% + 48px) !important; height: 300px !important; margin: -4.4vw -24px 0;
     -webkit-mask-image: linear-gradient(#000 60%, transparent); mask-image: linear-gradient(#000 60%, transparent);
   }
   .ft-photo img { left: 0 !important; top: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover; object-position: 70% 50%; }
@@ -693,6 +695,43 @@ h1, h2, h3 { font-family: var(--sans); }
   .foot-wordmark {
     order: 8; width: auto !important; font-size: 23vw; line-height: 1.1; text-align: center; margin: 24px -24px -2vw;
   }
-  /* The line canvas only runs on desktop; on phones show the faded word itself */
-  .foot-wordmark.lw-on { color: transparent !important; -webkit-text-fill-color: transparent; }
+  /* Flowing-line field behind the lower footer, like desktop; the canvas spells out the wordmark */
+  .foot-lines {
+    position: absolute !important; left: 0 !important; top: auto !important; bottom: 0; z-index: 0;
+    width: 100% !important; height: 640px !important;
+  }
+  .foot-wordmark.lw-on { background: none; }
 }
+@media (max-width: 760px) {
+  /* Gallery: taller band on phones so the circles stay a good size */
+  .gallery-stage { aspect-ratio: auto; height: 360px; }
+}
+
+/* Language selector (EN / ES) in the nav */
+.lang-switch {
+  display: inline-flex; padding: 3px; border-radius: 999px; gap: 2px;
+  background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.lang-switch button {
+  border: 0; background: none; color: rgba(255, 255, 255, 0.75); cursor: pointer;
+  font: 600 13px/1 var(--body); padding: 8px 11px; border-radius: 999px; transition: background 0.25s, color 0.25s;
+}
+.lang-switch button:hover { color: #fff; }
+.lang-switch button[aria-pressed="true"] { background: #fff; color: #313d1f; }
+.lang-switch button:focus-visible { outline: 2px solid #b9de7a; outline-offset: 2px; }
+@media (max-width: 760px) {
+  .nav-right { gap: 10px; }
+  .lang-switch button { padding: 7px 9px; font-size: 12px; }
+}
+@media (max-width: 1100px) {
+  /* Step cards never wider than the screen */
+  .step > img, .step-card, .step-media { width: 100% !important; max-width: 100%; }
+}
+@media (max-width: 760px) {
+  .pg-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .pg-stats div { padding: 22px 10px; }
+  .pg-stats b { font-size: 36px; line-height: 44px; }
+  .pg-season { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* Step cards slide in from the sides; clip so they can't widen the page before they arrive */
+.section.how { overflow-x: clip; }

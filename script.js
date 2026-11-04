@@ -364,7 +364,8 @@
   track.style.width = copies * SET_W + 'px';
 
   let scale = 1;
-  new ResizeObserver(() => { scale = stage.clientWidth / 1440; }).observe(stage);
+  // Scale to the band height: on desktop the band keeps the 1440x584 ratio, on phones it is taller
+  new ResizeObserver(() => { scale = stage.clientHeight / 584; }).observe(stage);
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const DRIFT = reduce ? 0 : 18; // design px per second while the page is still
