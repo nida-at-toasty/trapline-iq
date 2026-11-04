@@ -245,6 +245,26 @@
     });
   }
 
+  // Inner pages: each [data-reveal] block rises in; grids of cards stagger one after another
+  document.querySelectorAll('[data-reveal]').forEach((block) => {
+    const kids = block.matches('ol, ul, .pg-records, .pg-people, .pg-quotes, .pg-stats, .pg-faq')
+      ? block.children : [block];
+    gsap.from(kids, {
+      y: 50, opacity: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: block, start: 'top 85%' },
+    });
+  });
+  // Stat numbers count up from zero when the band scrolls in
+  document.querySelectorAll('[data-count]').forEach((el) => {
+    const end = +el.dataset.count;
+    const n = { v: 0 };
+    gsap.to(n, {
+      v: end, duration: 1.6, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 90%' },
+      onUpdate: () => { el.textContent = Math.round(n.v).toLocaleString('en-US'); },
+    });
+  });
+
   // CTA
   reveal('.cta-copy > *, .cta-stores', { stagger: 0.12 }, '.site-footer');
 

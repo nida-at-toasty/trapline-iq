@@ -500,13 +500,136 @@ h1, h2, h3 { font-family: var(--sans); }
 .hero-page .hero-copy { margin-top: 90px; max-width: 900px; }
 .hero-page .hero-copy p { max-width: 680px; }
 .nav-right a[aria-current="page"] { color: #b9de7a; }
-.hero-page + .how { padding-top: 60px; } /* the page hero already carries the heading */
-.hero-page + .trappers { padding-top: 40px; } /* For Trappers: dark hero flows straight into the map */
-/* For Trappers: the hero fades to black so it melts into the dark map section below */
-.hero-page.to-dark {
-  background: linear-gradient(rgba(0, 0, 0, 0) 55%, #000 100%),
-    radial-gradient(ellipse at 50% 70%, #3d4f22 0%, #1d2612 45%, #070906 100%);
-}
 @media (max-width: 1100px) {
   .trappers .split-head > div { width: auto; }
+}
+
+/* ---------- Inner pages (How It Works, For Trappers) ---------- */
+.pg-section { padding: 110px 0; }
+.pg-wrap { max-width: 1440px; margin: 0 auto; padding: 0 80px; }
+.pg-section .split-head { margin-bottom: 56px; }
+.pg-muted { color: #65645f; font-size: 18px; line-height: 26px; margin-top: 16px; max-width: 420px; }
+.pg-muted a { color: #4c6b1f; text-decoration: underline; }
+.pg-center { text-align: center; }
+
+/* Dark band with the same wavy cream edges as the landing page */
+.pg-dark {
+  position: relative; color: #fff; padding: 150px 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 60%, rgba(74, 112, 24, 0.5) 0%, rgba(0, 0, 0, 0) 70%),
+    linear-gradient(180deg, #0a0f05 0%, #1a2a0a 55%, #0d1406 100%);
+}
+.pg-edge { position: absolute; left: 0; width: 100%; height: 40px; display: block; }
+.pg-edge.top { top: -1px; }
+.pg-edge.bottom { bottom: -1px; }
+.pg-dark h2 { font-family: var(--sans); font-size: 48px; line-height: 56px; font-weight: 700; margin: 16px 0 18px; }
+.pg-lead { font-family: var(--sans); font-size: 20px; line-height: 28px; color: rgba(255, 255, 255, 0.85); max-width: 560px; }
+.pg-lead-dark { color: #313d1f; }
+.pg-section .pg-split h2 { font-family: var(--sans); font-size: 48px; line-height: 56px; font-weight: 700; margin: 16px 0 18px; }
+
+.pg-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.pg-checks { list-style: none; display: grid; gap: 18px; margin-top: 36px; }
+.pg-checks li { position: relative; padding-left: 40px; display: flex; flex-direction: column; gap: 4px; }
+.pg-checks li::before {
+  content: ""; position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 50%;
+  background: #627e30 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 12.5l3.2 3.2L17 9' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 18px no-repeat;
+}
+.pg-checks b { font-size: 17px; font-weight: 600; }
+.pg-checks span { font-size: 15px; line-height: 21px; color: rgba(255, 255, 255, 0.7); }
+.pg-checks.on-light span { color: #65645f; }
+.pg-btn { margin-top: 36px; }
+
+.pg-photo { position: relative; margin: 0; }
+.pg-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50%; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); }
+.pg-chip {
+  position: absolute; left: 6%; bottom: 8%; display: flex; align-items: center; gap: 12px;
+  background: #fff; color: #211f1b; border-radius: 16px; padding: 12px 18px 12px 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+.pg-chip b { display: block; font-size: 15px; }
+.pg-chip small { font-size: 12.5px; color: #65645f; }
+.pg-chip-icon { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: #ecf6e0; color: #4c6b1f; }
+
+/* How It Works: four-step timeline joined by a dashed trail */
+.pg-timeline { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
+.pg-timeline::before {
+  content: ""; position: absolute; left: 4%; right: 4%; top: 54px; border-top: 2px dashed #c2daa1; z-index: 0;
+}
+.pg-timeline li {
+  position: relative; z-index: 1; background: #fff; border-radius: 24px; padding: 28px 26px 26px;
+  box-shadow: 0 4px 40px rgba(49, 61, 31, 0.07); display: flex; flex-direction: column; gap: 10px;
+}
+.pg-num {
+  width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 8px;
+  background: #313d1f; color: #fff; font: 700 18px var(--body); box-shadow: 0 0 0 6px #ecf6e0;
+}
+.pg-timeline h3, .pg-records h3, .pg-people h3 { font-family: var(--sans); font-size: 22px; line-height: 28px; font-weight: 700; color: #211f1b; }
+.pg-timeline p, .pg-records p, .pg-people p { font-size: 15px; line-height: 22px; color: #65645f; }
+.pg-tag { margin-top: auto; align-self: flex-start; font-size: 12.5px; font-weight: 500; color: #4c6b1f; background: #ecf6e0; padding: 6px 12px; border-radius: 999px; }
+
+/* How It Works: record cards */
+.pg-records { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pg-records article { background: #fff; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 4px 40px rgba(49, 61, 31, 0.07); }
+.pg-ic { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: #313d1f; color: #c2daa1; font-size: 20px; margin-bottom: 6px; }
+.pg-records dl { margin-top: 10px; padding: 12px 14px; border-radius: 14px; background: #f3f6ee; border: 1px solid #e3ebd4; }
+.pg-records dt { font-size: 14px; font-weight: 600; color: #211f1b; }
+.pg-records dd { font-size: 13px; color: #65645f; margin: 2px 0 0; }
+
+/* How It Works: FAQ */
+.pg-faq-wrap { padding-bottom: 160px; }
+.pg-faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
+.pg-faq-grid h2 { font-family: var(--sans); font-size: 48px; line-height: 56px; font-weight: 700; margin-top: 16px; color: #313d1f; }
+.pg-faq { display: grid; gap: 12px; }
+.pg-faq details { background: #fff; border-radius: 18px; padding: 22px 26px; box-shadow: 0 4px 30px rgba(49, 61, 31, 0.06); }
+.pg-faq summary { cursor: pointer; list-style: none; font: 600 18px/26px var(--body); color: #211f1b; display: flex; justify-content: space-between; gap: 20px; }
+.pg-faq summary::-webkit-details-marker { display: none; }
+.pg-faq summary::after { content: "+"; font-size: 24px; line-height: 24px; color: #627e30; transition: transform 0.3s; }
+.pg-faq details[open] summary::after { transform: rotate(45deg); }
+.pg-faq details p { margin-top: 12px; font-size: 16px; line-height: 24px; color: #65645f; }
+
+/* For Trappers: people cards */
+.pg-people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pg-people article { background: #fff; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 4px 40px rgba(49, 61, 31, 0.07); }
+.pg-people img { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; box-shadow: 0 0 0 6px #ecf6e0; }
+.pg-people ul { list-style: none; margin-top: 8px; display: grid; gap: 8px; border-top: 1px solid #ecebe5; padding-top: 16px; }
+.pg-people li { font-size: 14.5px; color: #313d1f; padding-left: 22px; position: relative; }
+.pg-people li::before { content: ""; position: absolute; left: 0; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: #7bb32e; }
+
+/* For Trappers: stats band */
+.pg-stats-band h2 { margin-bottom: 56px; }
+.pg-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.pg-stats div { text-align: center; padding: 32px 16px; border-radius: 24px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); }
+.pg-stats b { display: block; font-family: var(--sans); font-size: 52px; line-height: 60px; font-weight: 700; color: #b9de7a; }
+.pg-stats span { font-size: 15px; color: rgba(255, 255, 255, 0.75); }
+
+/* For Trappers: testimonials */
+.pg-quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.pg-quotes blockquote { margin: 0; background: #313d1f; color: #fff; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.pg-quotes blockquote:nth-child(2) { background: #fff; color: #211f1b; box-shadow: 0 4px 40px rgba(49, 61, 31, 0.07); }
+.pg-quotes p { font-family: var(--sans); font-size: 19px; line-height: 28px; }
+.pg-quotes footer { margin-top: auto; display: flex; flex-direction: column; gap: 2px; }
+.pg-quotes footer span { font-size: 14px; opacity: 0.7; }
+
+/* For Trappers: season strip */
+.pg-season-wrap { padding-top: 0; }
+.pg-season { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.pg-season li { background: #fff; border-radius: 20px; padding: 22px 18px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 4px 30px rgba(49, 61, 31, 0.06); }
+.pg-season span { font: 700 13px var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: #7b7b7b; }
+.pg-season b { font-family: var(--sans); font-size: 19px; color: #211f1b; }
+.pg-season small { font-size: 13.5px; color: #65645f; }
+.pg-season li.is-hot { background: #313d1f; }
+.pg-season li.is-hot span { color: #b9de7a; }
+.pg-season li.is-hot b { color: #fff; }
+.pg-season li.is-hot small { color: rgba(255, 255, 255, 0.75); }
+
+@media (max-width: 1100px) {
+  .pg-wrap { padding: 0 24px; }
+  .pg-section { padding: 80px 0; }
+  .pg-dark { padding: 110px 0; }
+  .pg-split, .pg-faq-grid { grid-template-columns: 1fr; gap: 48px; }
+  .pg-timeline, .pg-records, .pg-people, .pg-quotes { grid-template-columns: 1fr; }
+  .pg-timeline::before { display: none; }
+  .pg-stats { grid-template-columns: 1fr 1fr; }
+  .pg-season { grid-template-columns: repeat(3, 1fr); }
+  .pg-dark h2, .pg-section .pg-split h2, .pg-faq-grid h2 { font-size: 36px; line-height: 42px; }
+  .pg-photo { max-width: 460px; margin: 0 auto; }
 }

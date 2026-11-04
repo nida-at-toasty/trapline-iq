@@ -6,7 +6,7 @@
 <title>How It Works · Trapline IQ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=45">
+<link rel="stylesheet" href="styles.css?v=46">
 </head>
 <body>
 
@@ -31,215 +31,102 @@
   </svg>
 </header>
 
-<!-- How it works -->
-<section class="section how" id="how">
-  <div class="step">
-    <!-- Step 1 card, rebuilt from Figma layers (630x491 stage). The road draws itself from point 1
-         down through 2 to 3, the points pop as it reaches them, then the centre dashes keep flowing. -->
-    <div class="step-card" role="img" aria-label="Downloaded maps screen with a route through points 1, 2 and 3">
-      <div class="stage" data-w="630" data-h="491">
-        <div class="layer" style="inset:0;background:#313d1f"></div>
-        <div class="layer s1-topo" style="left:204px;top:-183px;width:832.33px;height:1026px;-webkit-mask-image:url(assets/step1/topo-a.png);mask-image:url(assets/step1/topo-a.png)"></div>
-        <div class="layer s1-topo" style="left:-222px;top:98px;width:580.04px;height:715px;transform:scaleX(-1);-webkit-mask-image:url(assets/step1/topo-b.png);mask-image:url(assets/step1/topo-b.png)"></div>
-        <div class="layer s1-phone" style="left:26px;top:34px;width:517px;height:837px">
-          <img src="assets/step1/body.png" alt="" style="position:absolute;left:-438.63px;top:-121.52px;width:1448.18px;height:1086.14px">
-          <img src="assets/step1/screen.png" alt="" style="position:absolute;left:111.51px;top:46.6px;width:347.37px;height:749.9px;-webkit-mask:url(assets/step1/screen-mask.png) -550.14px -168.12px / 1448.18px 1086.14px no-repeat;mask:url(assets/step1/screen-mask.png) -550.14px -168.12px / 1448.18px 1086.14px no-repeat">
-        </div>
-        <svg class="layer s1-road" viewBox="0 0 630 491" style="left:0;top:0;width:630px;height:491px;overflow:visible" aria-hidden="true">
-          <defs>
-            <linearGradient id="s1-road-fill" x1="398.5" y1="0.7" x2="398.5" y2="438.42" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#aac57d" stop-opacity="0.7"/>
-            </linearGradient>
-            <path id="s1-center" d="M12.37 15.83C50.11 44.94 123.06 131.87 112.88 246.82C106.53 318.66 151.49 389.64 218.15 412.02C284.81 434.41 373.17 408.19 453.6 285.65C517.95 187.61 586.09 157.77 645.13 160.3C704.16 162.83 754.09 197.72 782.02 229.16"/>
-            <mask id="s1-reveal" maskUnits="userSpaceOnUse" x="-200" y="-200" width="1200" height="1000">
-              <use href="#s1-center" class="s1-reveal-stroke" pathLength="1"/>
-            </mask>
-          </defs>
-          <g transform="translate(-71.84 71.69) rotate(36.5 397.8 218.86)" mask="url(#s1-reveal)">
-            <path d="M24.0339 0.701258C64.7941 32.1272 142.865 124.753 131.914 248.498C126.298 311.956 166.333 374.467 224.231 393.908C279.62 412.508 359.936 393.532 437.629 275.159C504.562 173.18 578.391 138.311 645.942 141.206C711.766 144.027 766.185 182.573 796.296 216.471L767.726 241.848C741.989 212.874 696.551 181.622 644.306 179.383C593.788 177.217 531.336 202.026 469.574 296.126C386.4 422.851 289.999 456.302 212.067 430.133C136.643 404.806 86.7508 325.353 93.8502 245.129C103.244 138.982 35.428 57.7359 0.701284 30.962L24.0339 0.701258Z" fill="url(#s1-road-fill)" stroke="#5981a0"/>
-            <use href="#s1-center" class="s1-dashes"/>
-          </g>
-          <!-- Live route: glowing line + leading dot that travel from point 1 to point 3 -->
-          <g class="s1-live-group" transform="translate(-71.84 71.69) rotate(36.5 397.8 218.86)">
-            <use href="#s1-center" class="s1-live" pathLength="1"/>
-            <circle class="s1-dot" r="7"/>
-          </g>
-        </svg>
-        <span class="layer s1-point is-red" style="left:99px;top:55px">1</span>
-        <span class="layer s1-point" style="left:40px;top:310px">2</span>
-        <span class="layer s1-point" style="left:558px;top:386px">3</span>
-        <img class="layer" src="assets/step1/trap.svg" alt="" style="left:533px;top:214px;width:83.06px;height:42.69px;transform:rotate(-15.27deg);opacity:.9">
-      </div>
-    </div>
-    <div><span class="num">01</span><h3>Know Before You Go.</h3><p>Download maps, mark trap locations, and plan your route before heading out.</p></div>
-  </div>
-  <div class="step reverse">
-    <div class="step-media" data-rolls="step2"><img src="assets/hq/step-2.jpg" alt="GPS navigation screen: 8.4 km, 1 hr 25 min, 12 traps, 0 stops"></div>
-    <div><span class="num">02</span><h3>Find Your Way Out There.</h3><p>Navigate with GPS, locate your markers, and record trap visits and captures in the field.</p></div>
-  </div>
-  <div class="step">
-    <div class="step-media" data-rolls="step3"><img src="assets/hq/step-3.jpg" alt="Field records overview: 12 active traps, 4.2 km tracked, 34 visits, 6 field days; Trap 18 bait refreshed, 14°C, 4 km/h, 08/03/26"></div>
-    <div><span class="num">03</span><h3>Keep Every Detail.</h3><p>Review your field notes, track seasonal activity, and keep your records organized.</p></div>
-  </div>
-</section>
-
-<!-- Core features -->
-<section class="section features">
-  <span class="pill"><img src="assets/leaf.svg" alt="" width="19" height="21">Core Features</span>
-  <div class="split-head">
-    <h2>Everything you need. <em>Nothing</em> you don't.</h2>
-    <p>From planning your route to recording your latest capture, Trapline IQ keeps your entire trapping operation organized.</p>
-  </div>
-  <div class="feature-grid">
-    <!-- Each card is rebuilt on a fixed Figma-size stage (scaled by script.js). Backgrounds and copy are real layers;
-         data-floats boxes "x,y,w,h,radius" cut the phones / UI pieces from data-src so they can float. -->
-    <div class="bento wide" style="aspect-ratio: 738 / 489" data-src="assets/hq/trap.jpg"
-         data-floats="612,189,72,80,30px,s;236,378,59,59,50%,s;612,430,30,34,8px,s;82,361,30,34,8px,s;443,281,30,34,8px,s">
-      <div class="stage" data-w="738" data-h="489">
-        <div class="layer" style="inset:0;background:#ecf6e0"></div>
-        <img class="layer" src="assets/cards/trap-map.jpg" alt="" style="left:0;top:-245.3px;width:738px;height:1112.9px">
-        <img class="layer" src="assets/cards/trap-cover.jpg" alt="" style="inset:0;width:738px;height:489px;object-fit:cover">
-        <div class="layer" style="left:-114.7px;top:-19.4px;width:972.45px;height:500.72px;transform:rotate(-2.46deg);background:linear-gradient(#ecf6e0,rgba(236,246,224,0))"></div>
-        <div class="layer" style="left:0;top:1px;width:738px;height:511px;background:linear-gradient(161.13deg,#d9edc2 16.9%,rgba(236,246,224,.5) 45.28%,rgba(255,255,255,0) 70.39%)"></div>
-        <div class="card-copy"><h3>Trap &amp; Marker Management</h3><p>Add and manage traps, boxes and points of interest.</p></div>
-        <!-- Route from the trapper (avatar) to the trap pin, drawn like live navigation -->
-        <svg class="layer trap-route" viewBox="0 0 383.5 119.955" style="left:267.5px;top:249px;width:383.5px;height:119.955px" aria-hidden="true">
-          <path class="trap-route-base" d="M1.5 118.455V42.3569L87.7827 19.2376L178 109.455L245 96.9548V1.95484L277.25 10.5962L309.5 19.2376L360 48.3937L382 1.95484"/>
-          <path class="trap-route-live" pathLength="1" d="M1.5 118.455V42.3569L87.7827 19.2376L178 109.455L245 96.9548V1.95484L277.25 10.5962L309.5 19.2376L360 48.3937L382 1.95484"/>
-          <circle class="trap-route-dot" r="5"/>
-        </svg>
-        <span class="trap-pulse" style="left:240px;top:382px"></span>
-        <span class="trap-pulse trap-pulse-pin" style="left:622px;top:197px"></span>
-      </div>
-    </div>
-    <div class="bento" style="aspect-ratio: 522 / 489" data-src="assets/hq/offline.jpg"
-         data-floats="230,207,62,62,50%;119,308,285,52,12px">
-      <div class="stage" data-w="522" data-h="489">
-        <div class="layer" style="inset:0;background:#fff"></div>
-        <div class="layer" style="left:-17px;top:4px;width:556px;height:889px;overflow:hidden">
-          <img src="assets/cards/offline-forest.png" alt="" style="position:absolute;left:2.88%;top:1.42%;width:94.25%;height:94.26%">
-          <img src="assets/cards/offline-sky.png" alt="" style="position:absolute;left:-9.32%;top:-1.24%;width:118.64%;height:55.65%">
-        </div>
-        <div class="layer" style="inset:0;background:linear-gradient(165deg,#fff 21.91%,rgba(255,255,255,0) 54.97%)"></div>
-        <div class="card-copy"><h3>Offline Maps &amp; GPS</h3><p>Download maps and navigate without internet access.</p></div>
-      </div>
-    </div>
-    <div class="bento" style="aspect-ratio: 522 / 489" data-src="assets/hq/routes.jpg"
-         data-floats="68,161,385,328,49px 49px 0 0">
-      <div class="stage" data-w="522" data-h="489">
-        <div class="layer" style="inset:0;background:#313d1f"></div>
-        <img class="layer" src="assets/cards/routes-bg.jpg" alt="" style="inset:0;width:522px;height:489px;object-fit:cover">
-        <div class="layer" style="inset:0;background:rgba(50,62,32,.88)"></div>
-        <div class="card-copy on-dark"><h3>Routes &amp; Activity Tracking</h3><p>Create routes, save trails and track field movements.</p></div>
-      </div>
-    </div>
-    <div class="bento wide" style="aspect-ratio: 738 / 489" data-src="assets/hq/visit.jpg"
-         data-floats="83,171,320,318,24px 24px 0 0;341,294,209,161,15px">
-      <div class="stage" data-w="738" data-h="489">
-        <div class="layer" style="inset:0;background:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2)),#fff"></div>
-        <div class="layer" style="left:1px;top:0;width:738px;height:489px;overflow:hidden">
-          <img src="assets/cards/visit-a.jpg" alt="" style="position:absolute;left:-25.5%;top:-85.66%;width:125.46%;height:284.02%">
-          <img src="assets/cards/visit-b.jpg" alt="" style="position:absolute;left:0;top:-29.49%;width:147.97%;height:167.48%">
-        </div>
-        <div class="layer" style="left:0;top:0;width:738px;height:490px;background:linear-gradient(-63.17deg,rgba(255,255,255,0) 25.99%,#fff 70.2%)"></div>
-        <div class="card-copy"><h3>Visit &amp; Capture Logging</h3><p style="color:#65645f">Record trap visits, animal captures and trap activities.</p></div>
-      </div>
-    </div>
-    <div class="bento wide journal" style="aspect-ratio: 738 / 518" data-src="assets/hq/journal.jpg"
-         data-floats="226,113,212,405,34px 34px 0 0,s;103,207,168,90,14px;400,157,192,164,13px;66,363,195,80,13px;415,405,191,77,11px">
-      <div class="stage" data-w="738" data-h="518">
-        <div class="layer" style="inset:0;background:rgba(255,253,208,.4)"></div>
-        <img class="layer" src="assets/cards/journal-bg.jpg" alt="" style="left:0;top:-60px;width:738px;height:984px">
-        <div class="layer" style="left:79px;top:67px;width:1050.68px;height:814px;overflow:hidden">
-          <img src="assets/cards/journal-hand.png" alt="" style="position:absolute;left:-25.7%;top:-89.44%;width:125.7%;height:216.26%">
-        </div>
-        <img class="layer" src="assets/cards/journal-splash.jpg" alt="" style="left:243.79px;top:130.04px;width:180.27px;height:392.62px;border-radius:25.44px;object-fit:cover">
-        <div class="layer" style="left:0;top:0;width:738px;height:260px;background:linear-gradient(to top,rgba(0,0,0,0) 47.54%,#000)"></div>
-        <div class="card-copy on-dark"><h3>Journal &amp; Field Records</h3><p>Log field days, observations and issues.</p></div>
-      </div>
-    </div>
-    <div class="bento planning" style="aspect-ratio: 522 / 518">
-      <div class="stage planning-stage" data-w="522" data-h="518">
-        <img class="pl-bg" src="assets/planning/bg.png" alt="">
-        <div class="pl-wash"></div>
-        <div class="pl-copy">
-          <h3>Planning &amp; Sharing</h3>
-          <p>Organize outings and share field information.</p>
-        </div>
-        <img class="pl-road" src="assets/planning/road.svg" alt="">
-        <svg class="pl-road pl-route" viewBox="0 0 660.59 363.872" aria-hidden="true"><path id="pl-route" d="M114.55 288.4 C130.1 312.9, 153.25 332.25, 180.9 341.5 C236.1 360, 309.3 338.3, 376 236.8 C429.3 155.6, 485.7 130.9, 534.6 132.9"/></svg>
-        <img class="pl-dash-left" src="assets/planning/dash-left.svg" alt="">
-        <img class="pl-direction" src="assets/planning/direction.svg" alt="">
-        <img class="pl-dash-right" src="assets/planning/dash-right.svg" alt="">
-        <img class="pl-phone" src="assets/planning/phone-hq.jpg" alt="">
-        <img class="pl-pin" src="assets/planning/pin.svg" alt="">
-        <span class="pl-pulse"></span>
-        <div class="pl-photo planning-photo"><img src="assets/planning/photo1.png" alt=""><img src="assets/planning/photo2.png" alt=""></div>
-        <div class="pl-tree"><img src="assets/planning/tree.png" alt=""></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- More ways -->
-<section class="more">
-  <div class="inner">
+<!-- How It Works: a season in four moves (timeline) -->
+<section class="pg-section">
+  <div class="pg-wrap">
+    <span class="pill"><img src="assets/leaf.svg" alt="" width="19" height="21">The workflow</span>
     <div class="split-head">
-      <h2>More ways to trap smarter</h2>
-      <p>We're building more tools to make every trapping season easier. From homemade recipes to fur management.</p>
+      <h2>A season in four moves.</h2>
+      <p>Trapline IQ follows the rhythm of a real trapline: plan at the kitchen table, head out, check every set, and come home with records that are already done.</p>
     </div>
-    <div class="more-grid">
-      <!-- Cards rebuilt from Figma layers (413x552 stage, scaled by script.js): the curved line draws
-           itself and the phone glides in (up from the bottom, or down from the top on the middle card) -->
-      <div class="more-card" style="background:#f3f6ee">
-        <div class="stage" data-w="413.33" data-h="552">
-          <svg class="layer mc-line" viewBox="0 0 413.33 552" style="left:0;top:0;width:413.33px;height:552px;overflow:visible" aria-hidden="true">
-            <path pathLength="1" stroke="#000" stroke-opacity=".1" transform="translate(167.93 261.86) rotate(-22.44) translate(-287.9 -181.92)" d="M0.529495 12.0934C66.3671 14.976 204.723 45.6759 231.448 145.414C264.854 270.087 345.311 388.376 427.156 341.122C509.002 293.869 512.914 108.8 576.332 145.414"/>
-            <g class="mc-cursor" transform="translate(167.93 261.86) rotate(-22.44) translate(-287.9 -181.92)"><g class="mc-cursor-at" opacity="0"><circle r="27" fill="#9be04a" opacity=".28"/><circle r="18" fill="#fff"/><path d="M-7.5 -9 L10.5 0 L-7.5 9 L-3 0 Z" fill="#4c6b1f"/></g></g>
-          </svg>
-          <div class="layer mc-copy" style="left:22px;top:23px;width:370px">
-            <h3 style="font-size:26px;line-height:30px">Your secret formulas<br>all in one place</h3>
-            <p>Save snare and lure recipes with ingredients and instructions.</p>
-          </div>
-          <div class="layer mc-phone mc-up" style="inset:0">
-            <img src="assets/step1/body.png" alt="" style="position:absolute;left:-255px;top:115px;width:923.29px;height:692.47px">
-            <img src="assets/more/c1-screen.png" alt="Lures &amp; snare screen listing homemade lures" style="position:absolute;left:95.74px;top:222.18px;width:221.47px;height:478.1px;-webkit-mask:url(assets/more/c1-screen-mask.png) -350.74px -107.18px / 923.29px 692.47px no-repeat;mask:url(assets/more/c1-screen-mask.png) -350.74px -107.18px / 923.29px 692.47px no-repeat">
-          </div>
-        </div>
-      </div>
-      <div class="more-card" style="background:#313d1f">
-        <div class="stage" data-w="413.33" data-h="552">
-          <svg class="layer mc-line" viewBox="0 0 413.33 552" style="left:0;top:0;width:413.33px;height:552px;overflow:visible" aria-hidden="true">
-            <path pathLength="1" stroke="#fff" stroke-opacity=".1" transform="translate(232.17 168.89) rotate(-22.44) translate(-317.47 -174.7)" d="M0.459828 12.0963C73.0602 14.8561 225.628 44.2483 255.098 139.738C291.936 259.101 380.657 372.351 470.909 327.111C561.162 281.87 565.476 104.684 635.408 139.738"/>
-            <g class="mc-cursor" transform="translate(232.17 168.89) rotate(-22.44) translate(-317.47 -174.7)"><g class="mc-cursor-at" opacity="0"><circle r="27" fill="#9be04a" opacity=".28"/><circle r="18" fill="#fff"/><path d="M-7.5 -9 L10.5 0 L-7.5 9 L-3 0 Z" fill="#4c6b1f"/></g></g>
-          </svg>
-          <div class="layer mc-phone mc-down" style="inset:0">
-            <img src="assets/step1/body.png" alt="" style="position:absolute;left:-277px;top:-275px;width:968px;height:726px">
-            <img src="assets/more/c2-screen.png" alt="Seasonal calendar agenda screen" style="position:absolute;left:90.73px;top:-162.63px;width:232.19px;height:501.25px;-webkit-mask:url(assets/more/c2-screen-mask.png) -367.73px -112.37px / 968px 726px no-repeat;mask:url(assets/more/c2-screen-mask.png) -367.73px -112.37px / 968px 726px no-repeat">
-          </div>
-          <img class="layer mc-event" src="assets/more/c2-event-card.png" alt="Marten season opens, Sun 18 Oct, all day" style="left:66px;top:107.65px;width:282.19px;height:46.67px">
-          <div class="layer mc-copy on-dark" style="left:19.67px;top:393px;width:373px;gap:10px">
-            <h3 style="font-size:24px;line-height:31.2px">Stay one step ahead of the season.</h3>
-            <p>Plan trapping activities and track key dates with a seasonal calendar.</p>
-          </div>
-        </div>
-      </div>
-      <div class="more-card" style="background:#f3f6ee">
-        <div class="stage" data-w="413.33" data-h="552">
-          <svg class="layer mc-line" viewBox="0 0 413.33 552" style="left:0;top:0;width:413.33px;height:552px;overflow:visible" aria-hidden="true">
-            <path pathLength="1" stroke="#000" stroke-opacity=".1" transform="translate(300.17 303.54) rotate(-26.81) translate(-290.42 -191.85)" d="M0.555569 12.0922C66.9688 15.1436 206.535 47.64 233.493 153.215C267.191 285.184 348.352 410.395 430.913 360.376C513.474 310.358 517.42 114.458 581.392 153.215"/>
-            <g class="mc-cursor" transform="translate(300.17 303.54) rotate(-26.81) translate(-290.42 -191.85)"><g class="mc-cursor-at" opacity="0"><circle r="27" fill="#9be04a" opacity=".28"/><circle r="18" fill="#fff"/><path d="M-7.5 -9 L10.5 0 L-7.5 9 L-3 0 Z" fill="#4c6b1f"/></g></g>
-          </svg>
-          <div class="layer mc-copy" style="left:22px;top:23px;width:370px">
-            <h3 style="font-size:28px;line-height:33.6px">From freezer to sale, stay organized.</h3>
-            <p>Track fur inventory, monitor preparation, and manage pelts and pickups.</p>
-          </div>
-          <div class="layer mc-phone mc-up" style="inset:0">
-            <img src="assets/step1/body.png" alt="" style="position:absolute;left:-269px;top:115px;width:951.33px;height:713.5px">
-            <img src="assets/more/c3-screen.png" alt="Fur shed screen with pelt totals and fur lots" style="position:absolute;left:92.39px;top:225.44px;width:228.2px;height:492.62px;-webkit-mask:url(assets/more/c3-screen-mask.png) -361.4px -110.44px / 951.33px 713.5px no-repeat;mask:url(assets/more/c3-screen-mask.png) -361.4px -110.44px / 951.33px 713.5px no-repeat">
-          </div>
-        </div>
-      </div>
+    <ol class="pg-timeline" data-reveal>
+      <li>
+        <span class="pg-num">01</span>
+        <h3>Plan the run</h3>
+        <p>Download the map packs for your territory, drop pins for every set and save the route you want to run.</p>
+        <span class="pg-tag">At home · 10 min</span>
+      </li>
+      <li>
+        <span class="pg-num">02</span>
+        <h3>Head out</h3>
+        <p>GPS guides you set to set with no signal needed. Distance, speed and stops are tracked automatically.</p>
+        <span class="pg-tag">On the trail</span>
+      </li>
+      <li>
+        <span class="pg-num">03</span>
+        <h3>Check every set</h3>
+        <p>Log a visit in two taps: capture, bait refreshed, reset or closed. Add a photo and a note while it's fresh.</p>
+        <span class="pg-tag">At each trap · 20 sec</span>
+      </li>
+      <li>
+        <span class="pg-num">04</span>
+        <h3>Come home organized</h3>
+        <p>Your day syncs the moment you're back in range. Totals, catches and field notes are ready to review.</p>
+        <span class="pg-tag">Back in range</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- How It Works: off the grid (dark) -->
+<section class="pg-dark">
+  <svg class="pg-edge top" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V14C1300 20 1180 26 1060 22C900 16 780 30 640 30C470 30 360 12 220 14C130 15 60 22 0 26Z" fill="#f8f6ef"/></svg>
+  <div class="pg-wrap pg-split">
+    <div data-reveal>
+      <span class="pill pill-dark"><img src="assets/leaf.svg" alt="" width="19" height="21">Offline first</span>
+      <h2>Built for places your phone gives up.</h2>
+      <p class="pg-lead">Everything you need on the line lives on your device. No bars, no problem: maps, pins, routes and logs all work offline and sync later.</p>
+      <ul class="pg-checks">
+        <li><b>Offline map packs</b><span>Topographic maps for your whole territory, saved by region.</span></li>
+        <li><b>GPS without data</b><span>Your position and route recording use satellites, not cell towers.</span></li>
+        <li><b>Logs that wait for you</b><span>Visits and captures queue up and upload once you're back in range.</span></li>
+        <li><b>Battery friendly</b><span>Tracking is tuned to last a full day on the line.</span></li>
+      </ul>
+    </div>
+    <figure class="pg-photo" data-reveal>
+      <img src="assets/gallery/c1.jpg" alt="Sunset over a forested ridge in northern Quebec">
+      <figcaption class="pg-chip">
+        <span class="pg-chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+        <span><b>Côte-Nord · Sept-Îles</b><small>Map pack saved · 180 MB · works offline</small></span>
+      </figcaption>
+    </figure>
+  </div>
+  <svg class="pg-edge bottom" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40V30C120 26 260 22 420 24C560 26 640 6 760 4C900 2 1020 18 1160 18C1280 18 1380 22 1440 26V40Z" fill="#f8f6ef"/></svg>
+</section>
+
+<!-- How It Works: what gets recorded -->
+<section class="pg-section">
+  <div class="pg-wrap">
+    <span class="pill"><img src="assets/leaf.svg" alt="" width="19" height="21">Your records</span>
+    <div class="split-head">
+      <h2>Everything you log, in one place.</h2>
+      <p>Each visit builds a complete history of your trapline, so the end-of-season report practically writes itself.</p>
+    </div>
+    <div class="pg-records" data-reveal>
+      <article><span class="pg-ic">⌖</span><h3>Trap sets</h3><p>Type, location, bait and status for every set on your line.</p><dl><dt>Trap 18</dt><dd>Conibear 220 · Active</dd></dl></article>
+      <article><span class="pg-ic">✓</span><h3>Visits</h3><p>When you checked it and what you found, in two taps.</p><dl><dt>Today, 7:42 AM</dt><dd>Bait refreshed</dd></dl></article>
+      <article><span class="pg-ic">◆</span><h3>Captures</h3><p>Species, sex, weight and whether it was targeted.</p><dl><dt>Marten · Female</dt><dd>0.8 kg · Targeted</dd></dl></article>
+      <article><span class="pg-ic">☁</span><h3>Conditions</h3><p>Weather and snow are attached to each day automatically.</p><dl><dt>−5 °C · Snow</dt><dd>Light wind</dd></dl></article>
+      <article><span class="pg-ic">↝</span><h3>Routes</h3><p>Every trip with distance, time on trail and transport.</p><dl><dt>North Creek loop</dt><dd>12.8 km · ATV · 2h 14m</dd></dl></article>
+      <article><span class="pg-ic">✎</span><h3>Field notes</h3><p>Observations, tracks and issues, with photos attached.</p><dl><dt>Fresh tracks</dt><dd>Near the creek crossing</dd></dl></article>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works: FAQ -->
+<section class="pg-section pg-faq-wrap">
+  <div class="pg-wrap pg-faq-grid">
+    <div data-reveal>
+      <span class="pill"><img src="assets/leaf.svg" alt="" width="19" height="21">FAQ</span>
+      <h2>Questions trappers ask.</h2>
+      <p class="pg-muted">Can't find what you're looking for? Write to us at <a href="mailto:hello@traplineiq.ca">hello@traplineiq.ca</a> and a real person will answer.</p>
+    </div>
+    <div class="pg-faq" data-reveal>
+      <details open><summary>Does Trapline IQ really work with no cell signal?</summary><p>Yes. Download the map packs for your territory before you leave, and maps, GPS, pins and logging all work fully offline. Your entries sync automatically the next time you have a connection.</p></details>
+      <details><summary>Which provinces and territories are covered?</summary><p>Topographic maps are available across Canada, from the Yukon to Newfoundland and Labrador, including registered trapline and UGAF zones where available.</p></details>
+      <details><summary>Can I share my trapline with a partner?</summary><p>You can invite trapping partners to a shared territory. Everyone sees the same sets and routes, and visits are tagged with who logged them.</p></details>
+      <details><summary>How much battery does tracking use?</summary><p>Route recording is tuned for long days. Most trappers finish a full run with plenty to spare, and a low-power mode stretches it further in the cold.</p></details>
+      <details><summary>Can I export my records?</summary><p>Yes. Export a season summary or your full visit and capture history as a spreadsheet or PDF for your own records or reporting.</p></details>
     </div>
   </div>
 </section>
@@ -301,7 +188,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
-<script src="script.js?v=45"></script>
-<script src="animations.js?v=45"></script>
+<script src="script.js?v=46"></script>
+<script src="animations.js?v=46"></script>
 </body>
 </html>
