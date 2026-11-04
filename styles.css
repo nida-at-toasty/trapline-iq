@@ -833,3 +833,51 @@ h1, h2, h3 { font-family: var(--sans); }
 }
 /* The canvas draws the footer word; drop the gradient-filled text underneath on every size */
 .foot-wordmark.lw-on { background: none !important; }
+/* Desktop: language switch matches the 52px Download button */
+.nav .lang-switch { height: 52px; align-items: center; padding: 5px; }
+.nav .lang-switch button { height: 40px; min-width: 46px; padding: 0 14px; font-size: 14px; }
+.nav-home { display: none; }
+
+/* Mobile: full-screen Trapline menu that grows out of the menu button */
+@media (max-width: 760px) {
+  .nav .lang-switch { height: 42px; padding: 3px; }
+  .nav .lang-switch button { height: 34px; min-width: 38px; padding: 0 10px; font-size: 13px; }
+  .brand, .nav .lang-switch, .nav-toggle { position: relative; z-index: 61; }
+  .nav-toggle { background: rgba(255,255,255,.08); }
+  .nav.open .nav-toggle { background: #b9de7a; border-color: #b9de7a; }
+  .nav.open .nav-toggle span { background: #313d1f; }
+  .nav-menu {
+    position: fixed !important; inset: 0 !important; top: 0 !important; z-index: 60;
+    display: flex !important; flex-direction: column; justify-content: center; gap: 0 !important;
+    padding: 110px 28px 40px !important; border: 0 !important; border-radius: 0 !important;
+    background: radial-gradient(120% 70% at 85% 0%, #4b5d2c 0%, #313d1f 45%, #1d2512 100%) !important;
+    backdrop-filter: none !important;
+    clip-path: circle(0 at calc(100% - 44px) 44px); opacity: 1 !important; visibility: hidden !important; transform: none !important;
+    transition: clip-path .6s cubic-bezier(.77,0,.18,1), visibility 0s .6s !important;
+  }
+  .nav.open .nav-menu { clip-path: circle(150% at calc(100% - 44px) 44px); visibility: visible !important;
+    transition: clip-path .7s cubic-bezier(.77,0,.18,1), visibility 0s !important; }
+  .nav-menu > a:not(.btn-solid) {
+    display: flex !important; align-items: baseline; gap: 14px; padding: 18px 0 !important;
+    font: 700 38px/1.05 var(--body) !important; letter-spacing: -.02em; color: #f8f6ef !important;
+    border-bottom: 1px solid rgba(248,246,239,.12) !important;
+    opacity: 0; transform: translateY(28px); transition: opacity .3s, transform .3s, color .2s;
+  }
+  .nav-menu > a:not(.btn-solid)::before { font: 600 13px/1 var(--body); color: #b9de7a; letter-spacing: 0; }
+  .nav-menu > a:nth-child(1)::before { content: '01'; }
+  .nav-menu > a:nth-child(2)::before { content: '02'; }
+  .nav-menu > a:nth-child(3)::before { content: '03'; }
+  .nav-menu > a[aria-current="page"] { color: #b9de7a !important; }
+  .nav-menu > a:not(.btn-solid):active { color: #b9de7a !important; }
+  .nav-menu .btn-solid.animated-button { margin-top: 36px !important; height: 52px; opacity: 0; transform: translateY(28px); transition: opacity .3s, transform .3s; }
+  .nav.open .nav-menu > * { opacity: 1; transform: none; transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1), color .2s; }
+  .nav.open .nav-menu > :nth-child(1) { transition-delay: .25s; }
+  .nav.open .nav-menu > :nth-child(2) { transition-delay: .32s; }
+  .nav.open .nav-menu > :nth-child(3) { transition-delay: .39s; }
+  .nav.open .nav-menu > :nth-child(4) { transition-delay: .46s; }
+  body.menu-open { overflow: hidden; }
+}
+@media (max-width: 760px) {
+  /* A transform or backdrop-filter on the nav would trap the fixed menu inside it */
+  .nav.open { transform: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+}

@@ -4,6 +4,7 @@
 // (place names, numbers, the brand name).
 (function () {
   const ES = {
+    'Home': 'Inicio',
     // Nav, hero, shared
     'How It Works': 'Cómo funciona',
     'For Trappers': 'Para tramperos',

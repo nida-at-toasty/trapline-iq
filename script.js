@@ -573,6 +573,10 @@
 // Mobile nav menu toggle
 document.querySelectorAll('.nav-toggle').forEach((b) => {
   const nav = b.closest('.nav');
-  b.addEventListener('click', () => b.setAttribute('aria-expanded', nav.classList.toggle('open')));
-  nav.querySelectorAll('.nav-menu a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }));
+  b.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    b.setAttribute('aria-expanded', open);
+    document.body.classList.toggle('menu-open', open);
+  });
+  nav.querySelectorAll('.nav-menu a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }));
 });
