@@ -768,3 +768,33 @@ h1, h2, h3 { font-family: var(--sans); }
   .animated-button:hover .text { transform: none; }
   .nav .animated-button:hover .arr-1 { right: 5px; }
 }
+
+/* ---------- Phones: nav fits logo, language switch and button without overlap ---------- */
+@media (max-width: 760px) {
+  .nav { gap: 8px; }
+  .nav-right { gap: 8px; flex-shrink: 0; }
+  .brand { min-width: 0; flex-shrink: 1; overflow: hidden; }
+  .brand span { overflow: hidden; text-overflow: ellipsis; }
+}
+@media (max-width: 480px) {
+  /* Narrow phones: the logo mark alone carries the brand so the controls have room */
+  .brand span { display: none; }
+  .nav .btn-solid.animated-button { padding: 0 42px 0 12px; font-size: 13px; }
+}
+/* Perk icons have a dark backdrop; blend the whole column so the reveal's transform can't isolate it */
+.perks > div { mix-blend-mode: screen; }
+/* Offline card: Sept-Îles chips cycling in from the back */
+.ochips { position: absolute; left: 119px; top: 308px; width: 285px; height: 52px; z-index: 3; }
+.ochip { position: absolute; inset: 0; border-radius: 12px; background-size: 522px 489px; background-position: -119px -308px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12); transform-origin: 50% 100%; will-change: transform, opacity; }
+/* Store buttons: lift on hover, press on tap */
+.cta-stores a, .cta-stores img { transition: transform .25s ease, filter .25s ease; }
+.cta-stores img { border-radius: 10px; }
+.cta-stores img:hover { transform: translateY(-3px); filter: drop-shadow(0 8px 14px rgba(0,0,0,.35)); }
+.cta-stores img:active { transform: translateY(0) scale(.97); filter: none; }
+@media (max-width: 760px) {
+  .cta-stores { flex-direction: column; width: 100%; gap: 12px; }
+  .cta-stores a { display: block; width: 100%; }
+  .cta-stores img { width: 100% !important; max-width: none !important; }
+  .foot-wordmark { font-size: 16vw !important; margin: 24px 0 -1vw !important; padding: 0 !important; white-space: nowrap; }
+}

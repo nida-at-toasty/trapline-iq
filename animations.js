@@ -293,3 +293,26 @@
   // Re-measure once images have loaded and sizes are final
   window.addEventListener('load', () => ScrollTrigger.refresh());
 })();
+
+// Offline card: Sept-Îles chips step forward from the back, one by one, forever
+(function () {
+  const chips = gsap.utils.toArray('.ochip');
+  if (chips.length < 3 || !window.gsap) return;
+  const slots = [
+    { y: 0, scale: 1, opacity: 1, zIndex: 3 },          // front
+    { y: 15, scale: 0.86, opacity: 0.9, zIndex: 2 },    // back
+    { y: 28, scale: 0.72, opacity: 0, zIndex: 1 }       // hidden behind
+  ];
+  let order = chips.slice();
+  order.forEach((c, i) => gsap.set(c, slots[i]));
+  function step() {
+    const [front, back, hidden] = order;
+    const tl = gsap.timeline({ onComplete: () => { order = [back, hidden, front]; gsap.delayedCall(1.6, step); } });
+    tl.to(front, { y: -26, opacity: 0, scale: 1.04, duration: 0.5, ease: 'power2.in' }, 0)
+      .set(back, { zIndex: 3 }, 0)
+      .to(back, { ...slots[0], duration: 0.6, ease: 'power3.out' }, 0.15)
+      .to(hidden, { ...slots[1], duration: 0.6, ease: 'power3.out' }, 0.25)
+      .set(front, slots[2]);
+  }
+  gsap.delayedCall(1.6, step);
+})();
