@@ -5,8 +5,38 @@
     const W = +stage.dataset.w;
     stage.style.width = W + 'px';
     stage.style.height = stage.dataset.h + 'px';
+    const H = +stage.dataset.h;
+    const copy = card.classList.contains('bento') ? stage.querySelector('.card-copy') : null;
+    let head = null;
+    if (copy) {
+      // Mobile header: the card copy moves above the art so it never overlaps it
+      head = document.createElement('div');
+      head.className = 'card-head' + (copy.classList.contains('on-dark') ? ' on-dark' : '');
+      card.insertBefore(head, stage);
+      const src = card.dataset.src;
+      if (src) { // match the header to the art's top edge colour
+        const im = new Image();
+        im.onload = () => {
+          const c = document.createElement('canvas'); c.width = c.height = 1;
+          const x = c.getContext('2d'); x.drawImage(im, im.width / 2, 2, 1, 1, 0, 0, 1, 1);
+          const [r, g, b] = x.getImageData(0, 0, 1, 1).data;
+          card.style.setProperty('--head-bg', `rgb(${r},${g},${b})`);
+        };
+        im.src = src;
+      }
+    }
     new ResizeObserver(() => {
-      stage.style.transform = `scale(${card.clientWidth / W})`;
+      const k = card.clientWidth / W;
+      stage.style.transform = `scale(${k})`;
+      if (head) {
+        const mobile = window.innerWidth <= 760;
+        if (mobile && copy.parentElement !== head) head.appendChild(copy);
+        if (!mobile && copy.parentElement === head) stage.appendChild(copy);
+        const hh = mobile ? head.offsetHeight : 0;
+        stage.style.top = hh + 'px';
+        card.style.height = mobile ? hh + H * k + 'px' : '';
+        card.style.aspectRatio = mobile ? 'auto' : '';
+      }
       evenBentoText();
     }).observe(card);
   });
@@ -466,6 +496,7 @@
     { el: document.querySelector('.foot-lines'), text: document.querySelector('.foot-wordmark'), thin: 'rgba(255,255,255,0.07)', thick: 'rgba(255,255,255,0.34)' },
   ].filter((m) => m.el);
   const pointer = { x: -1e4, y: -1e4 };
+  const noHover = window.matchMedia('(hover: none)').matches;
   window.addEventListener('pointermove', (e) => {
     // Touch has no hover: only mouse/pen bend the lines, so a tap doesn't leave a dent behind
     pointer.x = e.clientX; pointer.y = e.clientY;
@@ -528,8 +559,16 @@
       // Pointer in the element's local (unscaled) coordinates
       const r = el.getBoundingClientRect();
       const sx = r.width / w || 1;
-      const px = (pointer.x - r.left) / sx;
-      const py = (pointer.y - r.top) / sx;
+      let px = (pointer.x - r.left) / sx;
+      let py = (pointer.y - r.top) / sx;
+      // Phones have no hover: an unseen "cursor" glides across the word so it moves like desktop
+      if (noHover && pointer.x < -1e3) {
+        const ty = m.text.getBoundingClientRect();
+        px = w * (0.5 + 0.45 * Math.sin(t * 0.55));
+        py = (ty.top + ty.height / 2 - r.top) / sx + Math.sin(t * 1.3) * ty.height * 0.25 / sx;
+      }
+      // Smaller, gentler bend on phone-size footers
+      const R2 = w < 700 ? 9000 : 40000, PUSH = w < 700 ? 12 : 26;
       const thin = new Path2D();
       const thick = new Path2D();
       for (let x0 = gap / 2; x0 < w; x0 += gap) {
@@ -542,7 +581,7 @@
           const ddx = x0 - px;
           const ddy = y - py;
           const d2 = ddx * ddx + ddy * ddy;
-          if (d2 < 40000) dx += (ddx / (Math.sqrt(d2) + 1)) * 26 * (1 - d2 / 40000);
+          if (d2 < R2) dx += (ddx / (Math.sqrt(d2) + 1)) * PUSH * (1 - d2 / R2);
           const x = x0 + dx;
           const isIn = inside(x0, y) > 0.5;
           if (prev) {

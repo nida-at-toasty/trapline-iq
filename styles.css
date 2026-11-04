@@ -908,3 +908,21 @@ h1, h2, h3 { font-family: var(--sans); }
   .nav-menu .btn-solid.animated-button { justify-content: center !important; padding: 0 56px !important; height: 56px !important; }
   .nav-menu .btn-solid.animated-button img { top: 50% !important; margin-top: 0 !important; transform: translateY(-50%); }
 }
+/* Feature cards: one text measure everywhere, and a soft backing so copy never fights the art */
+.bento .card-copy p { max-width: calc(290px * var(--inv, 1)) !important; }
+.bento .stage::after {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: calc(150px * var(--inv, 1)); z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.92) 0%, rgba(255,255,255,.75) 55%, rgba(255,255,255,0) 100%);
+}
+.bento .stage:has(.card-copy.on-dark)::after { background: linear-gradient(180deg, rgba(20,24,12,.7) 0%, rgba(20,24,12,.4) 55%, rgba(20,24,12,0) 100%); }
+.bento .card-copy { z-index: 3 !important; }
+.bento .card-copy:not(.on-dark) p { color: #55524b; }
+.card-head { display: none; }
+@media (max-width: 760px) {
+  .bento .card-head { display: block; position: relative; z-index: 3; padding: 24px 22px 6px; background: var(--head-bg, #fff); }
+  .bento .card-head::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 40px; background: linear-gradient(var(--head-bg, #fff), transparent); pointer-events: none; }
+  .bento .card-head .card-copy { position: static !important; display: flex; flex-direction: column; gap: 8px !important; }
+  .bento .card-head .card-copy h3 { font-size: 22px !important; line-height: 1.2; }
+  .bento .card-head .card-copy p { font-size: 14px !important; line-height: 1.45; max-width: 290px !important; }
+  .bento .stage::after { display: none; }
+}
