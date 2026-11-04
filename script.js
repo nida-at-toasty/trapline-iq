@@ -7,8 +7,22 @@
     stage.style.height = stage.dataset.h + 'px';
     new ResizeObserver(() => {
       stage.style.transform = `scale(${card.clientWidth / W})`;
+      evenBentoText();
     }).observe(card);
   });
+  // Bento stages differ in Figma width, so the same font size renders at different sizes.
+  // Shrink each card's copy to match the card that renders smallest.
+  function evenBentoText() {
+    const stages = [...document.querySelectorAll('.bento .stage')];
+    const sc = stages.map((st) => st.closest('.bento').clientWidth / +st.dataset.w);
+    // On phones every card shares one target (22px titles); on desktop match the smallest card
+    const min = window.innerWidth <= 760 ? 0.78 : Math.min(...sc.filter((v) => v > 0));
+    stages.forEach((st, i) => {
+      if (!sc[i]) return;
+      st.style.setProperty('--fix', min / sc[i]);
+      st.style.setProperty('--inv', 1 / sc[i]);
+    });
+  }
 })();
 
 // Bento cards: cut the phones and UI pieces out of the card's flat export (data-src) and place them

@@ -823,3 +823,11 @@ h1, h2, h3 { font-family: var(--sans); }
   .cta-stores img { width: 200px !important; }
   .cta-stores a { width: auto; }
 }
+/* Same rendered title/subtitle size on every bento card (see evenBentoText) */
+.bento .card-copy h3 { font-size: calc(28px * var(--fix, 1)); line-height: 1.2; }
+.bento .card-copy p { font-size: calc(16px * var(--fix, 1)); line-height: 1.3; }
+.bento .card-copy { gap: calc(10px * var(--fix, 1)); }
+@media (max-width: 760px) {
+  .bento .card-copy { left: calc(22px * var(--inv, 1)); right: calc(22px * var(--inv, 1)); top: calc(24px * var(--inv, 1)); }
+  .bento .card-copy h3 { white-space: normal; }
+}

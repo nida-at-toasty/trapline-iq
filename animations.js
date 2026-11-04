@@ -83,10 +83,10 @@
       .add(() => ring(avatarPulse))
       .set(trip, { p: 0, onComplete: place })
       .to([dot, route], { opacity: 1, duration: 0.3 })
-      .to(trip, { p: 1, duration: 3.2, ease: 'power1.inOut', onUpdate: place })
+      .to(trip, { p: 1, duration: 1.8, ease: 'power1.inOut', onUpdate: place })
       .add(() => ring(pinPulse))
       .to(dot, { opacity: 0, duration: 0.3 }, '<')
-      .to(route, { opacity: 0, duration: 0.8 }, '+=1.2');
+      .to(route, { opacity: 0, duration: 0.5 }, '+=0.6');
   }
 
   // Planning card: the direction icon leaves its spot, rides the road behind the phone,
@@ -163,7 +163,7 @@
       .to([live, dot], { opacity: 1, duration: 0.3 })
       .to(trip, { p: to, duration: 3.6, ease: 'power1.inOut', onUpdate: place })
       .to(dot, { opacity: 0, duration: 0.3 })
-      .to(live, { opacity: 0, duration: 0.8 }, '+=1.2');
+      .to(live, { opacity: 0, duration: 0.5 }, '+=0.6');
   }
 
   // How it works: images slide in from their side, copy follows
