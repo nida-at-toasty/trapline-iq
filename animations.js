@@ -48,20 +48,13 @@
   // Bento grid
   reveal('.bento', { y: 80, scale: 0.96, stagger: 0.1, duration: 1.1 }, '.feature-grid');
 
-  // Journal card: notes pop out one by one, then keep drifting on their own rhythm
+  // Journal card: notes pop out one by one, then settle exactly in place. (The phone cut-out under
+  // them holds a copy of their edges, so any drift would show a ghost card behind.)
   const journal = document.querySelector('.bento.journal');
   if (journal) {
     const notes = journal.querySelectorAll('.float:not(.still)');
     gsap.timeline({ scrollTrigger: { trigger: journal, start: 'top 75%' } })
-      .from(notes, { scale: 0.6, opacity: 0, y: 20, duration: 0.7, ease: 'back.out(1.8)', stagger: 0.18 })
-      .add(() => {
-        notes.forEach((el, i) => {
-          gsap.to(el, {
-            y: i % 2 ? 6 : -6, rotation: i % 2 ? -1 : 1,
-            duration: 2.4 + i * 0.4, ease: 'sine.inOut', yoyo: true, repeat: -1,
-          });
-        });
-      });
+      .from(notes, { scale: 0.6, opacity: 0, y: 20, duration: 0.7, ease: 'back.out(1.8)', stagger: 0.18, clearProps: 'transform' });
   }
 
   // Trap card: like live navigation, the route draws from the trapper's avatar to the trap pin,
