@@ -198,6 +198,7 @@
     'Voices from the line': 'Voces de la línea',
     'Verified trapper': 'Trampero verificado',
     'In the field': 'En el campo',
+    'Now': 'Ahora',
     'Life on the line.': 'La vida en la línea.',
     'Snowmobile runs, fur sheds and frozen lakes: a season through the eyes of the trappers who use Trapline IQ.': 'Recorridos en moto de nieve, cobertizos de pieles y lagos helados: una temporada vista por los tramperos que usan Trapline IQ.',
     "“The offline maps sold me. I ran forty kilometres of line last week without a single bar and every visit was waiting to sync when I got home.”": '“Los mapas sin conexión me convencieron. La semana pasada recorrí cuarenta kilómetros de línea sin señal y cada visita estaba lista para sincronizar al llegar a casa.”',

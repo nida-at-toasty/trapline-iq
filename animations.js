@@ -369,3 +369,18 @@
   cards.forEach((c, i) => c.addEventListener('click', () => to(i)));
   window.addEventListener('resize', render);
 })();
+
+// Season planner: the timeline fills left to right as you scroll, lighting each month's dot,
+// while the month cards rise onto the line one after another
+(function () {
+  const list = document.querySelector('.pg-season');
+  const fill = document.querySelector('.ss-fill');
+  if (!list || !window.gsap || !window.ScrollTrigger) return;
+  const items = gsap.utils.toArray('li', list);
+  gsap.from(items, { y: 50, opacity: 0, rotation: (i) => (i % 2 ? 3 : -3), duration: 0.8, ease: 'back.out(1.6)', stagger: 0.09,
+    scrollTrigger: { trigger: list, start: 'top 85%' } });
+  if (fill) {
+    gsap.to(fill, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: list, start: 'top 80%', end: 'bottom 45%', scrub: 0.6,
+      onUpdate: (st) => items.forEach((li, i) => li.classList.toggle('ss-on', st.progress >= (i + 0.3) / items.length)) } });
+  }
+})();
