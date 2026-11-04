@@ -623,3 +623,33 @@ document.querySelectorAll('.nav-toggle').forEach((b) => {
   });
   nav.querySelectorAll('.nav-menu a').forEach((a) => a.addEventListener('click', () => { nav.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-open'); }));
 });
+
+// Testimonial row on phones: arrows and dots step through the cards
+(function () {
+  const row = document.querySelector('.pg-fan');
+  const nav = document.querySelector('.fan-nav');
+  if (!row || !nav) return;
+  const cards = [...row.querySelectorAll('.fan-card')];
+  const dots = nav.querySelector('.fan-dots');
+  cards.forEach(() => dots.appendChild(document.createElement('i')));
+  const current = () => {
+    const mid = row.scrollLeft + row.clientWidth / 2;
+    let best = 0, dist = Infinity;
+    cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < dist) { dist = d; best = i; } });
+    return best;
+  };
+  const go = (i) => {
+    const c = cards[Math.max(0, Math.min(cards.length - 1, i))];
+    row.scrollTo({ left: c.offsetLeft - (row.clientWidth - c.offsetWidth) / 2, behavior: 'smooth' });
+  };
+  const sync = () => {
+    const i = current();
+    [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    nav.querySelector('.fan-prev').disabled = i === 0;
+    nav.querySelector('.fan-next').disabled = i === cards.length - 1;
+  };
+  nav.querySelector('.fan-prev').addEventListener('click', () => go(current() - 1));
+  nav.querySelector('.fan-next').addEventListener('click', () => go(current() + 1));
+  row.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+  sync();
+})();

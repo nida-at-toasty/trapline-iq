@@ -1004,3 +1004,17 @@ h1, h2, h3 { font-family: var(--sans); }
    3:4 card sits inside the circle (card diagonal = circle diameter = 166.67% of card width) */
 .flip-card { background-color: #313d1f; background-size: cover; background-position: center; background-repeat: no-repeat; }
 .flip-card.is-round { background-size: 166.67% auto; }
+/* Testimonial arrows (phones only; desktop shows the whole fan) */
+.fan-nav { display: none; }
+@media (max-width: 760px) {
+  .fan-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 4px; }
+  .fan-nav button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(49,61,31,.15); background: #fff; display: grid; place-items: center; cursor: pointer;
+    box-shadow: 0 6px 18px rgba(49,61,31,.1); transition: transform .2s, background .2s, opacity .2s; }
+  .fan-nav button:active { transform: scale(.92); }
+  .fan-nav button:disabled { opacity: .35; }
+  .fan-nav svg { width: 20px; height: 20px; fill: none; stroke: #313d1f; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .fan-next svg { transform: scaleX(-1); }
+  .fan-dots { display: flex; gap: 6px; }
+  .fan-dots i { width: 7px; height: 7px; border-radius: 4px; background: rgba(49,61,31,.2); transition: width .3s, background .3s; }
+  .fan-dots i.on { width: 20px; background: #313d1f; }
+}
