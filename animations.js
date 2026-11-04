@@ -18,7 +18,22 @@
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
   });
 
-  const reveal = (targets, vars, trigger) =>
+  // Hero phone: sinks and fades as you scroll down, rises back into view as you scroll up.
+  // Its CSS entrance animation holds the transform, so hand over to GSAP once it has finished.
+  const heroPhone = document.querySelector('.hero-phone');
+  if (heroPhone) {
+    const linkToScroll = () => {
+      heroPhone.style.animation = 'none';
+      gsap.fromTo(heroPhone, { y: 0, opacity: 1 }, {
+        y: 180, opacity: 0, ease: 'none',
+        scrollTrigger: { trigger: heroPhone, start: 'top 45%', end: 'bottom top', scrub: 0.4 },
+      });
+    };
+    if (getComputedStyle(heroPhone).animationName === 'none') linkToScroll();
+    else heroPhone.addEventListener('animationend', linkToScroll, { once: true });
+  }
+
+  const reveal =(targets, vars, trigger) =>
     gsap.from(targets, {
       y: 50, opacity: 0, stagger: 0.12, ...vars,
       scrollTrigger: { trigger: trigger || targets, start: 'top 85%' },

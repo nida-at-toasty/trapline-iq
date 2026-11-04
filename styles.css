@@ -735,3 +735,36 @@ h1, h2, h3 { font-family: var(--sans); }
 }
 /* Step cards slide in from the sides; clip so they can't widen the page before they arrive */
 .section.how { overflow-x: clip; }
+
+/* ---------- Phones: nav button + hero checklist ---------- */
+@media (max-width: 760px) {
+  .nav { padding: 8px 8px 8px 14px; }
+  .brand { white-space: nowrap; font-size: 15px; gap: 8px; }
+  .brand img { width: 28px; height: auto; }
+  /* Compact, single-line download button */
+  .nav .btn-solid.animated-button {
+    height: 42px; padding: 0 44px 0 14px; font-size: 13.5px; white-space: nowrap;
+  }
+  .nav .animated-button img { top: 5px; width: 32px; height: 32px; }
+  .nav .animated-button .arr-1 { right: 5px; }
+  .nav .animated-button:hover .arr-2 { left: 5px; }
+  .nav .animated-button:hover .text { transform: translateX(30px); }
+
+  /* Checklist: each line fits on one row with its tick, sizes step up gently toward the last line */
+  .checks { gap: 8px; padding: 0 8px; }
+  .checks li { display: block; max-width: 100%; text-align: center; text-wrap: balance; }
+  .checks li span { margin-right: 6px; }
+  .checks .c1 { font-size: 14.5px; }
+  .checks .c2 { font-size: 15.5px; }
+  .checks .c3 { font-size: 16.5px; }
+  .checks .c4 { font-size: 20px; }
+}
+/* Touch screens have no hover: keep the button in its normal state after a tap */
+@media (hover: none) {
+  .animated-button:hover { box-shadow: 0 0 0 2px rgba(142, 224, 58, 0.55); color: inherit; border-radius: 43px; }
+  .animated-button:hover .circle { width: 20px; height: 20px; opacity: 0; }
+  .animated-button:hover .arr-1 { right: 6px; }
+  .animated-button:hover .arr-2 { left: -25%; }
+  .animated-button:hover .text { transform: none; }
+  .nav .animated-button:hover .arr-1 { right: 5px; }
+}
