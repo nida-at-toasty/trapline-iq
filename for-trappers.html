@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Trappers · Trapline IQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=45">
+</head>
+<body>
+
+<!-- Page hero: same look as the landing hero, compact -->
+<header class="hero hero-page to-dark">
+  <nav class="nav">
+    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="32" height="34"><span>Trapline IQ</span></a>
+    <div class="nav-right">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="for-trappers.html" aria-current="page">For Trappers</a>
+      <a class="btn-solid animated-button" href="#get-app"><img class="arr-2" src="assets/arrow.svg" alt=""><span class="text">Download App Now</span><span class="circle"></span><img class="arr-1" src="assets/arrow.svg" alt=""></a>
+    </div>
+  </nav>
+
+  <div class="hero-copy">
+    <span class="pill pill-dark"><img src="assets/leaf.svg" alt="" width="19" height="21">For trappers</span>
+    <h1>Built by a trapper, for the people on the line.</h1>
+    <p>Plan outings together, navigate your territory beyond cell coverage, and keep your trapping buddies in the loop, all with Trapline IQ.</p>
+  </div>
+</header>
+
+<!-- For trappers -->
+<section class="trappers" id="trappers">
+  <div class="inner">
+    <span class="pill pill-dark"><img src="assets/leaf.svg" alt="" width="19" height="21">For trappers</span>
+    <div class="split-head">
+      <h2>Your <b class="g">Territory</b>. Your Traditions. Your <b class="r">People.</b></h2>
+      <div>
+        <p>The wilderness may take you off the grid, but your fieldwork stays organized. Plan your outings, manage your territory, and share important field information with the people you trap alongside — all with Trapline IQ.</p>
+        <a class="btn-light animated-button" href="#get-app"><img class="arr-2" src="assets/arrow.svg" alt=""><span class="text">Download App Now</span><span class="circle"></span><img class="arr-1" src="assets/arrow.svg" alt=""></a>
+      </div>
+    </div>
+    <div class="perks">
+      <div><img src="assets/trappers/icon-plan.png" alt=""><h3>Plan Together</h3><p>Organize outings and get your next trip planned before you hit the trail.</p></div>
+      <div><img src="assets/trappers/icon-navigate.png" alt=""><h3>Navigate with Confidence</h3><p>Find your marked locations and follow your routes, even beyond cell coverage.</p></div>
+      <div><img src="assets/trappers/icon-connect.png" alt=""><h3>Stay Connected</h3><p>Share relevant field information and keep your trapping buddies in the loop.</p></div>
+    </div>
+
+    <!-- Trip map: Canada dot map with outing pins (1280x1080 stage, scaled by script.js) -->
+    <div class="trip-map">
+      <div class="trip-stage">
+        <img class="trip-dither" src="assets/trappers/dither.svg" alt="">
+        <!-- Pins sit on real Canadian regions of the dot map; hover (or tap) one to open its outing -->
+        <svg class="trip-link" width="1280" height="1080" aria-hidden="true"><line x1="0" y1="0" x2="0" y2="0"/></svg>
+        <button class="trip-pin" style="left:86px;top:708px" data-trip="0" aria-label="Kootenay backcountry, BC"><img src="assets/trappers/pin.svg" alt=""><span>Kootenay, BC</span></button>
+        <button class="trip-pin" style="left:312px;top:489px" data-trip="1" aria-label="Great Slave Lake, NT"><img src="assets/trappers/pin.svg" alt=""><span>Great Slave Lake, NT</span></button>
+        <button class="trip-pin" style="left:546px;top:708px" data-trip="2" aria-label="Churchill River, MB"><img src="assets/trappers/pin.svg" alt=""><span>Churchill River, MB</span></button>
+        <button class="trip-pin" style="left:698px;top:833px" data-trip="3" aria-label="North Creek, ON"><img src="assets/trappers/pin.svg" alt=""><span>North Creek, ON</span></button>
+        <button class="trip-pin" style="left:1101px;top:770px" data-trip="4" aria-label="Sept-Îles, Côte-Nord, QC"><img src="assets/trappers/pin.svg" alt=""><span>Sept-Îles, QC</span></button>
+
+        <div class="trip-pop">
+        <article class="trip-card" aria-live="polite">
+          <div class="trip-col">
+            <div class="trip-photo">
+              <img class="trip-photo-img" src="assets/trappers/trip-snow.jpg" alt="">
+              <div class="trip-photo-bar">
+                <span class="glass"><img src="assets/trappers/back.svg" alt=""></span>
+                <span class="trip-photo-actions"><span class="glass"><img src="assets/trappers/share.svg" alt=""></span><span class="glass"><img src="assets/trappers/dots.svg" alt=""></span></span>
+              </div>
+              <img class="trip-pager" src="assets/trappers/pager.svg" alt="">
+              <span class="trip-thumb"><img src="assets/trappers/map.jpg" alt=""></span>
+            </div>
+            <h4 class="trip-title" data-k="title">North Creek field day</h4>
+            <div class="trip-stats">
+              <div><span>Distance</span><b data-k="distance">12.8 km</b></div>
+              <div><span>Transport</span><b data-k="transport">ATV</b></div>
+              <div><span>Avg. speed</span><b data-k="speed">5.7 km/h</b></div>
+              <div><span>Duration</span><b data-k="duration">2h 14m</b></div>
+            </div>
+          </div>
+          <div class="trip-col trip-waypoints">
+            <h5>Waypoints</h5>
+            <div class="wp wp-start"><b>Start</b><span data-k="startTime">7:42 AM</span><span>Starting location</span></div>
+            <div class="wp-stops">
+              <div><span class="wp-map"><img src="assets/trappers/map.jpg" alt=""><img class="wp-route" src="assets/trappers/route.svg" alt=""></span><b data-k="stop1">01 · Stop</b><small data-k="stop1Note">After 4.2 mi · 12m stop</small></div>
+              <div><span class="wp-map"><img src="assets/trappers/map.jpg" alt="" style="filter:grayscale(.15) brightness(1.05)"></span><b data-k="stop2">02 · Creek crossing</b><small data-k="stop2Note">After 3.7 mi · 24 min stop</small></div>
+            </div>
+            <div class="wp wp-end"><b>End</b><span data-k="endTime">11:18 AM</span><span data-k="total">14.6 mi total</span></div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg class="trappers-edge bottom" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40V30C120 26 260 22 420 24C560 26 640 6 760 4C900 2 1020 18 1160 18C1280 18 1380 22 1440 26V40Z" fill="#f8f6ef"/>
+  </svg>
+</section>
+
+<!-- Meet the Founder: rebuilt from Figma layers on a 1440x900 stage (scaled by script.js) -->
+<section class="founder">
+  <div class="stage founder-stage" data-w="1440" data-h="900">
+    <img class="layer" src="assets/founder/band.svg" alt="" style="left:-53px;top:0.86px;width:1545.63px;height:861.47px">
+    <div class="layer founder-paper" style="left:0;top:82px;width:1440px;height:735px;background:#f1f0eb">
+      <img src="assets/founder/topo.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.68">
+      <div style="position:absolute;inset:0;background:rgba(241,240,235,.7)"></div>
+    </div>
+    <div class="layer founder-copy" style="left:84px;top:224px">
+      <h2>Meet the Founder</h2>
+      <p>“The best technology doesn't replace tradition. It helps us carry it forward.”</p>
+      <p>I built Trapline IQ to give trappers a simpler way to manage their traplines, record their experiences, and spend more time where they belong on the line</p>
+    </div>
+    <p class="layer founder-role" style="left:84px;top:525px">Founder, Trapline IQ</p>
+    <div class="layer founder-sign" style="left:84px;top:567.07px;width:165px;height:49.87px">
+      <img src="assets/founder/signature.png" alt="Stéphane Geissel signature" style="position:absolute;left:-7.11%;top:-20.63%;width:116.44%;height:153.03%">
+    </div>
+    <img class="layer founder-photo" src="assets/founder/photo-cutout.png" alt="Stéphane Geissel, founder of Trapline IQ, holding a large trout" style="left:710px;top:217px;width:719.56px;height:653.4px">
+    <div class="layer" style="left:-52px;top:2px;width:1545px;height:100px;overflow:hidden">
+      <img src="assets/founder/edge-top.png" alt="" style="position:absolute;left:0;top:7.86px;width:1545px;height:111.56px">
+    </div>
+    <div class="layer" style="left:-28px;top:783px;width:1545px;height:100px;overflow:hidden;transform:scaleY(-1)">
+      <img src="assets/founder/edge-bottom.png" alt="" style="position:absolute;left:0;top:0.86px;width:1545px;height:111.56px;transform:rotate(-2.94deg)">
+    </div>
+  </div>
+</section>
+
+<!-- Gallery: the 13 photo circles from Figma drift right to left in an endless loop
+     (1440x800 stage, scaled to the page). Hovering a circle grows it while its neighbours ease back. -->
+<section class="gallery" aria-label="Trappers in the field">
+  <svg class="gallery-edge top" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0H1440V22C1300 30 1160 14 1000 16C820 18 700 34 520 30C360 26 200 10 0 18Z" fill="#0b0f07"/>
+  </svg>
+  <div class="gallery-stage"><div class="gallery-track"></div></div>
+</section>
+
+<!-- CTA + footer: rebuilt from Figma (1440x1156 stage, scaled to the page). The cream wave at the top
+     is the gallery's edge dipping over the CTA photo, exactly as in the design. -->
+<footer class="site-footer">
+  <div class="stage footer-stage" data-w="1440" data-h="1156">
+    <div class="layer" style="left:0;top:419px;width:1440px;height:737px;background:#303c1c"></div>
+    <div class="layer" style="left:0;top:-70px;width:1440px;height:619px;overflow:hidden;background:#d9d9d9">
+      <img src="assets/footer/cta-photo.jpg" alt="" style="position:absolute;left:92.16px;top:-626.74px;width:1648.5px;height:2198px;max-width:none">
+      <div style="position:absolute;inset:0;background:linear-gradient(51.06deg,#303c1c 37.93%,rgba(48,60,28,0) 96.4%)"></div>
+    </div>
+    <img class="layer" src="assets/footer/glow.svg" alt="" style="left:594px;top:458px;width:1277px;height:205px">
+    <!-- Full-width field of flowing lines; the big wordmark below is spelled out inside it (script.js) -->
+    <div class="layer foot-lines" aria-hidden="true" style="left:0;top:540px;width:1440px;height:616px"></div>
+    <!-- Edge: cream band + Figma wave (Vector 1428) -->
+    <div class="layer" style="left:0;top:0;width:1440px;height:12px;background:#fdfcf9"></div>
+    <svg class="layer" viewBox="0 0 1440 106" style="left:0;top:-45px;width:1440px;height:106px;overflow:visible" aria-hidden="true">
+      <path fill="#fdfcf9" d="M58.3654 81.2199L-75.6736 49.6604C-80.5523 48.5118 -84 44.158 -84 39.146C-84 33.2891 -79.3325 28.4992 -73.4775 28.3476L1529.7 -13.1586C1542.85 -13.4992 1553.7 -2.92935 1553.7 10.2284C1553.7 20.2689 1547.29 29.1899 1537.78 32.3974L1438.26 65.9484C1422.06 71.4101 1405.05 74.0916 1387.95 73.8794L1029.53 69.43L734.996 104.052C723.979 105.347 712.852 105.428 701.817 104.295L366.933 69.9098C363.826 69.5908 360.694 69.592 357.587 69.9134L175.584 88.7413C136.365 92.7984 96.7439 90.2561 58.3654 81.2199Z"/>
+    </svg>
+
+    <div class="layer cta-copy" style="left:188px;top:170px;width:630px">
+      <div class="cta-stars"><img src="assets/footer/stars.svg" alt="5 stars" width="112.63" height="24"><span>5.0 Reviews</span></div>
+      <h2>Built for trappers. Made for the trapline</h2>
+      <p>Your trapline, your routes, your records&nbsp; everything you need for the season ahead, all in one place.</p>
+    </div>
+    <div class="layer stores cta-stores" id="get-app" style="left:188px;top:418px">
+      <a href="#"><img src="assets/store-apple.png" alt="Download on the App Store"></a>
+      <a href="#"><img src="assets/store-google.png" alt="Get it on Google Play"></a>
+    </div>
+
+    <div class="layer foot-brand" style="left:188px;top:641.4px;width:385.88px">
+      <a class="brand" href="index.html"><img src="assets/footer/logo.svg" alt="" width="44.6" height="46.95"><span>Trapline IQ</span></a>
+      <p>The all-in-one app for trappers to plan, navigate, and keep their field records organized on and off the grid.</p>
+      <a class="foot-social" href="#"><img src="assets/footer/facebook.svg" alt="" width="20" height="20">Facebook</a>
+    </div>
+    <nav class="layer foot-links" style="left:621.9px;top:655.65px;width:167px" aria-label="Footer">
+      <h4>Company</h4>
+      <a href="how-it-works.html">How it works</a>
+      <a href="for-trappers.html">For trappers</a>
+      <a href="#get-app">Download App</a>
+    </nav>
+    <form class="layer foot-news" style="left:836.9px;top:641.4px" onsubmit="return false">
+      <p>Sign up for our newsletter and join the Transparent community.</p>
+      <div class="foot-field">
+        <input type="email" placeholder="Input Email Address" aria-label="Email address">
+        <button type="submit">Subscribe <img src="assets/footer/subscribe-arrow.svg" alt="" width="40" height="40"></button>
+      </div>
+    </form>
+    <div class="layer foot-legal" style="left:188px;top:838.4px;width:1172.92px">
+      <span>© 2026 Trapline IQ All rights reserved.</span>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="layer foot-wordmark" aria-hidden="true" style="left:79.54px;top:910.4px;width:1280.92px">Trapline IQ</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="script.js?v=45"></script>
+<script src="animations.js?v=45"></script>
+</body>
+</html>

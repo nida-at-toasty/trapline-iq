@@ -221,7 +221,6 @@
   }).filter((l) => l.at);
   if (legs.length) {
     const total = legs.reduce((s, l) => s + l.len, 0);
-    const SPEED = 140; // card px per second
     const place = (d) => {
       let rest = d;
       legs.forEach((l) => {
@@ -236,9 +235,14 @@
         rest -= l.len;
       });
     };
+    // Driven by scroll: once the three cards are well on screen (grid top at 65% of the viewport) the
+    // cursor runs the whole route until the grid's bottom passes 35%, so it moves quickly as you scroll down and backs up as you scroll up (scrub adds a short smoothing)
     const trip = { d: 0 };
-    gsap.timeline({ repeat: -1, repeatDelay: 0.6, scrollTrigger: { trigger: '.more-grid', start: 'top 70%' }, delay: 1.8 })
-      .fromTo(trip, { d: 0 }, { d: total, duration: total / SPEED, ease: 'power1.inOut', onUpdate: () => place(trip.d) });
+    place(0);
+    gsap.to(trip, {
+      d: total, ease: 'none', onUpdate: () => place(trip.d),
+      scrollTrigger: { trigger: '.more-grid', start: 'top 65%', end: 'bottom 35%', scrub: 0.35 },
+    });
   }
 
   // CTA

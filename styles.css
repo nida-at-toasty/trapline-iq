@@ -494,3 +494,19 @@ h1, h2, h3 { font-family: var(--sans); }
 /* Waypoint cursor that travels the road through the three More-ways cards (each card clips it) */
 .mc-cursor-at { filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.3)); }
 .mc-cursor-layer { pointer-events: none; }
+
+/* Inner pages (How It Works, For Trappers): compact version of the landing hero */
+.hero-page { padding-bottom: 150px; }
+.hero-page .hero-copy { margin-top: 90px; max-width: 900px; }
+.hero-page .hero-copy p { max-width: 680px; }
+.nav-right a[aria-current="page"] { color: #b9de7a; }
+.hero-page + .how { padding-top: 60px; } /* the page hero already carries the heading */
+.hero-page + .trappers { padding-top: 40px; } /* For Trappers: dark hero flows straight into the map */
+/* For Trappers: the hero fades to black so it melts into the dark map section below */
+.hero-page.to-dark {
+  background: linear-gradient(rgba(0, 0, 0, 0) 55%, #000 100%),
+    radial-gradient(ellipse at 50% 70%, #3d4f22 0%, #1d2612 45%, #070906 100%);
+}
+@media (max-width: 1100px) {
+  .trappers .split-head > div { width: auto; }
+}
