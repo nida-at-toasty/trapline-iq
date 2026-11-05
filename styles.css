@@ -63,6 +63,13 @@ h1, h2, h3 { font-family: var(--sans); }
   -webkit-mask-image: linear-gradient(180deg, #000 20%, rgba(0, 0, 0, 0.45) 55%, transparent 88%);
   mask-image: linear-gradient(180deg, #000 20%, rgba(0, 0, 0, 0.45) 55%, transparent 88%);
 }
+/* Faded brand mark behind the hand and phone */
+.hero-mark {
+  position: absolute; left: 50%; top: min(150px, 10vw); width: min(760px, 62%); height: auto;
+  transform: translateX(-50%); opacity: 0.06; pointer-events: none; z-index: 0;
+  -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+}
 .hero-phone {
   position: relative; margin: 0 auto; width: 1217px; max-width: 100%;
   /* Fade the hand into the hero background */
@@ -1242,3 +1249,5 @@ a:active > img[src*="store-apple"], a:active > img[src*="store-google"] { transf
 .cf-status.is-ok { background: #ecf6e0; color: #2f4a12; border: 1px solid #c9dfa6; }
 .cf-status.is-err { background: #fdeee8; color: #8a2b14; border: 1px solid #f3c4b3; }
 .contact-form button:disabled { opacity: .6; cursor: progress; }
+/* Keep the hand and phone above the faded brand mark */
+.hero-visual .hero-phone { position: relative; z-index: 1; }

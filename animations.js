@@ -28,6 +28,11 @@
         y: 180, opacity: 0, ease: 'none',
         scrollTrigger: { trigger: heroPhone, start: 'top 45%', end: 'bottom top', scrub: 0.4 },
       });
+      // The brand mark behind fades out first, so it never shows through the fading hand
+      gsap.to('.hero-mark', {
+        opacity: 0, y: 180, ease: 'none',
+        scrollTrigger: { trigger: heroPhone, start: 'top 45%', end: 'top 10%', scrub: 0.4 },
+      });
     };
     if (getComputedStyle(heroPhone).animationName === 'none') linkToScroll();
     else heroPhone.addEventListener('animationend', linkToScroll, { once: true });
