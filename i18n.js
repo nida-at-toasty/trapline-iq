@@ -102,7 +102,7 @@
     "The all-in-one app for trappers to plan, navigate, and keep their field records organized on and off the grid.": "L'app tout-en-un pour planifier, naviguer et garder vos registres de terrain en ordre, avec ou sans réseau.",
     "Company": "Entreprise",
     "Download App": "Télécharger l'app",
-    "Sign up for our newsletter and join the Transparent community.": "Inscrivez-vous à notre infolettre et rejoignez la communauté Trapline IQ.",
+    "Sign up for our newsletter and join the Trapline IQ community.": "Inscrivez-vous à notre infolettre et rejoignez la communauté Trapline IQ.",
     "Subscribe": "S'abonner",
     "© 2026 Trapline IQ All rights reserved.": "© 2026 Trapline IQ. Tous droits réservés.",
     "Privacy Policy": "Politique de confidentialité",
