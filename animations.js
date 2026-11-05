@@ -377,11 +377,22 @@
   const fill = document.querySelector('.ss-fill');
   if (!list || !window.gsap || !window.ScrollTrigger) return;
   const items = gsap.utils.toArray('li', list);
+  // One dot per month on the bar, lined up with the card's left edge + icon
+  const track = fill && fill.parentElement;
+  const dots = track ? items.map(() => track.appendChild(Object.assign(document.createElement('span'), { className: 'ss-dot' }))) : [];
+  const placeDots = () => dots.forEach((d, i) => { d.style.left = (items[i].offsetLeft - track.offsetLeft + 39) + 'px'; });
+  placeDots();
+  window.addEventListener('resize', placeDots);
   gsap.from(items, { y: 50, opacity: 0, rotation: (i) => (i % 2 ? 3 : -3), duration: 0.8, ease: 'back.out(1.6)', stagger: 0.09,
     scrollTrigger: { trigger: list, start: 'top 85%' } });
   if (fill) {
     gsap.to(fill, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: list, start: 'top 80%', end: 'bottom 45%', scrub: 0.6,
-      onUpdate: (st) => items.forEach((li, i) => li.classList.toggle('ss-on', st.progress >= (i + 0.3) / items.length)) } });
+      onUpdate: (st) => items.forEach((li, i) => {
+        // A month lights up once the fill reaches its dot
+        const on = dots[i] ? st.progress * track.offsetWidth >= parseFloat(dots[i].style.left) : false;
+        li.classList.toggle('ss-on', on);
+        if (dots[i]) dots[i].classList.toggle('ss-on', on);
+      }) } });
   }
 })();
 
