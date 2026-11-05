@@ -156,9 +156,9 @@
       if (covers(s, c, 40)) return; // keep clear space around the active pin and its label
       const hits = others.filter((p) => covers(s, p)).length;
       const dist = Math.hypot(s.x + POP_W / 2 - c.x, s.y + POP_H / 2 - c.y);
-      // Pins sit behind the open card, so covering a neighbour is allowed but mildly penalised;
-      // staying close to the active pin matters most
-      const score = hits * 120 + dist;
+      // The open card hides (and blocks) any pin under it, so covering a neighbour is a last resort;
+      // among clear spots, the one closest to the active pin wins
+      const score = hits * 5000 + dist;
       if (!best || score < best.score) best = { ...s, score };
     }));
     return { x: best.x, y: best.y, c };
@@ -188,6 +188,8 @@
     }
 
     if (tl) tl.kill();
+    // A hover can interrupt the last reveal half-way; reset its pieces so the card never stays blank
+    gsap.set(card.querySelectorAll('.trip-photo, .trip-title, .trip-stats > div, .trip-waypoints > *'), { clearProps: 'opacity,transform' });
     const wasOpen = pop.style.visibility === 'visible';
     tl = gsap.timeline();
     if (wasOpen) {
@@ -207,9 +209,8 @@
       // Line shoots out from the pin, then the card blooms open from it
       .to(link, { attr: { x2: edge.x, y2: edge.y }, duration: 0.3, ease: 'power2.out' })
       .to(pop, { clipPath: `circle(${reach}px at ${ox}px ${oy}px)`, scale: 1, duration: 0.7, ease: 'power3.out' }, '-=0.1')
-      .from(card.querySelectorAll('.trip-photo, .trip-title, .trip-stats > div, .trip-waypoints > *'), {
-        y: 16, opacity: 0, duration: 0.45, stagger: 0.04, ease: 'power2.out',
-      }, '-=0.5');
+      .fromTo(card.querySelectorAll('.trip-photo, .trip-title, .trip-stats > div, .trip-waypoints > *'),
+        { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, stagger: 0.04, ease: 'power2.out', immediateRender: false }, '-=0.5');
   }
 
   pins.forEach((pin) => {
