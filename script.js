@@ -219,7 +219,7 @@
   });
 
   // Start with one outing open once the map scrolls into view
-  const start = pins[3];
+  const start = pins[4]; // Sept-Îles, QC
   if (window.IntersectionObserver) {
     const io = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) { open(start); io.disconnect(); }
