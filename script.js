@@ -674,13 +674,20 @@ document.querySelectorAll('.nav-toggle').forEach((b) => {
         method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
+      if (!res.ok || String(data.success) === 'false') {
+        // FormSubmit explains itself (e.g. the one-time "form needs activation" step), so show its words
+        const err = new Error(data.message || res.status);
+        err.detail = data.message;
+        throw err;
+      }
       form.reset();
       status.className = 'cf-status is-ok';
       status.textContent = t("Thanks! Your message is on its way. We'll get back to you soon.");
     } catch (err) {
       status.className = 'cf-status is-err';
-      status.textContent = t('Sorry, something went wrong. Please try again or email us at hello@traplineiq.ca.');
+      status.textContent = err.detail
+        ? err.detail
+        : t('Sorry, something went wrong. Please try again or email us at hello@traplineiq.ca.');
     } finally {
       btn.disabled = false;
     }
