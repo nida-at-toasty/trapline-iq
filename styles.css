@@ -1182,3 +1182,15 @@ h1, h2, h3 { font-family: var(--sans); }
   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6v12M6 12h12' stroke='%23313d1f' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") center/16px no-repeat;
   transition: transform .35s, background-color .3s; }
 .pg-faq details[open] summary::after { transform: rotate(135deg); background-color: #b9de7a; }
+/* Steps: drop the connector line (it crossed the photos); numbers still light up in turn */
+.hw-flow::before, .hw-flow::after { display: none !important; }
+/* Ghost link: underline sits right under its own text */
+.ft-ghost { padding: 4px 0 !important; margin: 0 6px; line-height: 1.3; }
+/* Nav: language switch is the same height as the Download button (52px + its 2px ring) and sits close to it */
+.nav .lang-switch { height: 56px !important; padding: 5px !important; box-sizing: border-box; }
+.nav .lang-switch button { height: 44px !important; padding: 0 16px !important; }
+@media (min-width: 761px) { .nav .lang-switch { margin-right: -22px; } }
+@media (max-width: 760px) {
+  .nav .lang-switch { height: 42px !important; padding: 3px !important; margin-right: 0; }
+  .nav .lang-switch button { height: 34px !important; padding: 0 10px !important; }
+}
