@@ -193,7 +193,7 @@
     "Made for every kind of trapline.": "Faite pour toutes les lignes de trappe.",
     "Whether it's your first season or your thirtieth, a solo line or a family operation, Trapline IQ fits the way you already work.": "Que ce soit votre première saison ou votre trentième, une ligne en solo ou une affaire de famille, Trapline IQ s'adapte à votre façon de travailler.",
     "Seasoned line runners": "Trappeurs aguerris",
-    "Long lines, dozens of sets, years of habits. Keep every trap and route in one place instead of a notebook and memory.": "De longues lignes, des dizaines de pièges, des années d'habitudes. Gardez chaque piège et chaque trajet au même endroit plutôt que dans un carnet et dans votre tête.",
+    "Long lines, hundreds of sets, years of habits. Keep every trap and route in one place instead of a notebook and memory.": "De longues lignes, des centaines de pièges, des années d'habitudes. Gardez chaque piège et chaque trajet au même endroit plutôt que dans un carnet et dans votre tête.",
     "Hundreds of sets, no clutter": "Des centaines de pièges, sans fouillis",
     "Season-over-season history": "Un historique d'une saison à l'autre",
     "Fast two-tap visit logging": "Visites consignées en deux touches",
