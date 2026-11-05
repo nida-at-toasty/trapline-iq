@@ -4,6 +4,19 @@
 // (place names, numbers, the brand name).
 (function () {
   const FR = {
+    "From first check to": "De la première visite au",
+    "final record": "dernier registre",
+    "Plan": "Planifier",
+    "Check sets": "Visiter les pièges",
+    "Sync": "Synchroniser",
+    "See the workflow": "Voir le fonctionnement",
+    "Lac de la Fouine": "Lac de la Fouine",
+    "Map pack saved": "Carte enregistrée",
+    "Côte-Nord · 180 MB": "Côte-Nord · 180 Mo",
+    "No signal": "Aucun signal",
+    "GPS still tracking": "Le GPS suit toujours",
+    "Visit logged": "Visite consignée",
+    "Trap 18 · Bait refreshed": "Piège 18 · Appât renouvelé",
     "Contact": "Contact",
     "Contact us": "Nous joindre",
     "We'd love to hear from you.": "Nous aimerions avoir de vos nouvelles.",

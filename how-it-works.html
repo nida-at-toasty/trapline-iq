@@ -23,7 +23,7 @@
 <meta name="twitter:image" content="https://trapline-iq.vercel.app/assets/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=81">
+<link rel="stylesheet" href="styles.css?v=83">
 </head>
 <body>
 
@@ -46,8 +46,24 @@
 
   <div class="hero-copy">
     <span class="pill pill-dark"><img src="assets/leaf.svg" alt="" width="19" height="21">How it works</span>
-    <h1>From first check to final record.</h1>
+    <h1 class="ft-title"><span class="ft-w">From first check to</span> <span class="ft-hl"><span>final record</span><svg viewBox="0 0 220 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12C40 5 90 3 130 6s62 6 86 2"/></svg></span>.</h1>
     <p>One connected workflow for every trip, every trap, and every detail worth keeping. Plan before you head out, find your way in the field, and keep every record organized, even with no signal.</p>
+    <ol class="hw-steps" aria-label="The four steps">
+      <li><b>01</b>Plan</li><li><b>02</b>Head out</li><li><b>03</b>Check sets</li><li><b>04</b>Sync</li>
+    </ol>
+    <div class="ft-cta">
+      <a class="btn-light animated-button" href="#get-app"><img class="arr-2" src="assets/arrow.svg" alt=""><span class="text">Get the app</span><span class="circle"></span><img class="arr-1" src="assets/arrow.svg" alt=""></a>
+      <a class="ft-ghost" href="#workflow">See the workflow</a>
+    </div>
+  </div>
+  <!-- App moments floating around the headline (desktop) -->
+  <div class="ft-photos" aria-hidden="true">
+    <figure class="ft-ph p1" style="background-image:url(assets/trappers/trip-lake.jpg)"><figcaption>Lac de la Fouine</figcaption></figure>
+    <div class="hw-card c-plan"><i class="hw-ic"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg></i><span><b>Map pack saved</b><small>Côte-Nord · 180 MB</small></span></div>
+    <div class="hw-card c-gps"><span class="hw-bars"><i></i><i></i><i></i><i></i></span><span><b>No signal</b><small>GPS still tracking</small></span></div>
+    <figure class="ft-ph p3" style="background-image:url(assets/trappers/app-in-field.jpg)"><figcaption>Logging a beaver set</figcaption></figure>
+    <div class="hw-card c-log"><i class="hw-ic is-ok"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></i><span><b>Visit logged</b><small>Trap 18 · Bait refreshed</small></span></div>
+    <span class="ft-chip c2"><i></i>Synced · 42 visits</span>
   </div>
   <svg class="hero-edge" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 44 L28 39 L420 37 L744 10 L1078 37 L1360 25 Q1420 23 1440 38 V64 H0 Z" fill="#f8f6ef"/>
@@ -55,33 +71,37 @@
 </header>
 
 <!-- How It Works: a season in four moves (timeline) -->
-<section class="pg-section">
+<section class="pg-section" id="workflow">
   <div class="pg-wrap">
     <span class="pill"><img src="assets/leaf.svg" alt="" width="19" height="21">The workflow</span>
     <div class="split-head">
       <h2>A season in four moves.</h2>
       <p>Trapline IQ follows the rhythm of a real trapline: plan at the kitchen table, head out, check every set, and come home with records that are already done.</p>
     </div>
-    <ol class="pg-timeline" data-reveal>
+    <ol class="pg-timeline hw-flow">
       <li>
+        <div class="hw-photo" style="background-image:url(assets/trappers/map.jpg)"></div>
         <span class="pg-num">01</span>
         <h3>Plan the run</h3>
         <p>Download the map packs for your territory, drop pins for every set and save the route you want to run.</p>
         <span class="pg-tag">At home · 10 min</span>
       </li>
       <li>
+        <div class="hw-photo" style="background-image:url(assets/trappers/trip-river.jpg)"></div>
         <span class="pg-num">02</span>
         <h3>Head out</h3>
         <p>GPS guides you set to set with no signal needed. Distance, speed and stops are tracked automatically.</p>
         <span class="pg-tag">On the trail</span>
       </li>
       <li>
+        <div class="hw-photo" style="background-image:url(assets/trappers/app-in-field.jpg)"></div>
         <span class="pg-num">03</span>
         <h3>Check every set</h3>
         <p>Log a visit in two taps: capture, bait refreshed, reset or closed. Add a photo and a note while it's fresh.</p>
         <span class="pg-tag">At each trap · 20 sec</span>
       </li>
       <li>
+        <div class="hw-photo" style="background-image:url(assets/trappers/trip-sunset.jpg)"></div>
         <span class="pg-num">04</span>
         <h3>Come home organized</h3>
         <p>Your day syncs the moment you're back in range. Totals, catches and field notes are ready to review.</p>
@@ -107,7 +127,7 @@
       </ul>
     </div>
     <figure class="pg-photo" data-reveal>
-      <img src="assets/gallery/c1.jpg" alt="Sunset over a forested ridge in northern Quebec">
+      <img src="assets/trappers/trip-sunset.jpg" alt="Sunset over a forested ridge in northern Quebec">
       <figcaption class="pg-chip">
         <span class="pg-chip-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 4v14M15 6v14" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
         <span><b>Côte-Nord · Sept-Îles</b><small>Map pack saved · 180 MB · works offline</small></span>
@@ -211,8 +231,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
-<script src="script.js?v=81"></script>
-<script src="animations.js?v=81"></script>
-<script src="i18n.js?v=81"></script>
+<script src="script.js?v=83"></script>
+<script src="animations.js?v=83"></script>
+<script src="i18n.js?v=83"></script>
 </body>
 </html>

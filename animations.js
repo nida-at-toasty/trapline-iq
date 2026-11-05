@@ -405,9 +405,9 @@
   // (The headline itself fades in with the shared hero intro above)
   const tl = gsap.timeline({ delay: 1.1 });
   tl.to(title.querySelector('.ft-hl path'), { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut' })
-    .from(hero.querySelectorAll('.ft-cta, .ft-proof'), { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08 }, '-=0.5')
-    .from(hero.querySelectorAll('.ft-ph, .ft-chip'), { scale: 0.6, opacity: 0, y: 40, duration: 0.9, ease: 'back.out(1.7)', stagger: 0.1 }, '-=0.8');
-  const items = gsap.utils.toArray('.ft-ph, .ft-chip', hero);
+    .from(hero.querySelectorAll('.ft-cta, .ft-proof, .hw-steps'), { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out', stagger: 0.08 }, '-=0.5')
+    .from(hero.querySelectorAll('.ft-ph, .ft-chip, .hw-card'), { scale: 0.6, opacity: 0, y: 40, duration: 0.9, ease: 'back.out(1.7)', stagger: 0.1 }, '-=0.8');
+  const items = gsap.utils.toArray('.ft-ph, .ft-chip, .hw-card', hero);
   // Gentle idle float
   items.forEach((el, i) => gsap.to(el, { yPercent: i % 2 ? 6 : -6, duration: 3 + i * 0.4, ease: 'sine.inOut', yoyo: true, repeat: -1, delay: 1.5 }));
   // Mouse parallax: nearer pieces move more
@@ -440,3 +440,36 @@
     });
   });
 })();
+
+// How It Works hero: the four step pills light up in turn, on a loop
+(function () {
+  const steps = document.querySelectorAll('.hw-steps li');
+  if (!steps.length) return;
+  let i = 0;
+  const tick = () => { steps.forEach((s, k) => s.classList.toggle('is-on', k === i)); i = (i + 1) % steps.length; };
+  tick();
+  setInterval(tick, 1600);
+})();
+
+// How It Works steps: cards rise in one by one, then the line fills with scroll and lights each number
+(function () {
+  const flow = document.querySelector('.hw-flow');
+  if (!flow || !window.gsap || !window.ScrollTrigger) return;
+  const items = gsap.utils.toArray('li', flow);
+  gsap.from(items, { y: 60, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12, scrollTrigger: { trigger: flow, start: 'top 85%' } });
+  ScrollTrigger.create({
+    trigger: flow, start: 'top 70%', end: 'bottom 55%', scrub: 0.6,
+    onUpdate: (st) => {
+      flow.style.setProperty('--p', st.progress.toFixed(3));
+      items.forEach((li, i) => li.classList.toggle('is-on', st.progress >= i / (items.length - 1) - 0.02));
+    },
+  });
+})();
+
+// FAQ: open answers slide down instead of popping in
+document.querySelectorAll('.pg-faq details').forEach((d) => {
+  const body = d.querySelector('p');
+  d.addEventListener('toggle', () => {
+    if (d.open && body && window.gsap) gsap.from(body, { height: 0, opacity: 0, y: -6, duration: 0.4, ease: 'power2.out', clearProps: 'height' });
+  });
+});
