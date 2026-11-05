@@ -654,3 +654,35 @@ document.querySelectorAll('.nav-toggle').forEach((b) => {
   row.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
   sync();
 })();
+
+// Contact form: send through FormSubmit to hello@traplineiq.ca without leaving the page.
+// (If scripts fail, the form still posts normally to the same address.)
+(function () {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+  const status = form.querySelector('.cf-status');
+  const btn = form.querySelector('button[type="submit"]');
+  const t = (s) => (window.trapT ? window.trapT(s) : s);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form._honey && form._honey.value) return; // bots fill the hidden field
+    status.className = 'cf-status';
+    status.textContent = t('Sending…');
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) === 'false') throw new Error(data.message || res.status);
+      form.reset();
+      status.className = 'cf-status is-ok';
+      status.textContent = t("Thanks! Your message is on its way. We'll get back to you soon.");
+    } catch (err) {
+      status.className = 'cf-status is-err';
+      status.textContent = t('Sorry, something went wrong. Please try again or email us at hello@traplineiq.ca.');
+    } finally {
+      btn.disabled = false;
+    }
+  });
+})();

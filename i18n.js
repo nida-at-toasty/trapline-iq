@@ -4,6 +4,10 @@
 // (place names, numbers, the brand name).
 (function () {
   const FR = {
+    "We usually reply within one business day.": "Nous répondons habituellement en un jour ouvrable.",
+    "Thanks! Your message is on its way. We'll get back to you soon.": "Merci ! Votre message a bien été envoyé. Nous vous répondrons bientôt.",
+    "Sorry, something went wrong. Please try again or email us at hello@traplineiq.ca.": "Désolé, un problème est survenu. Réessayez ou écrivez-nous à hello@traplineiq.ca.",
+    "Sending…": "Envoi…",
     "From first check to": "De la première visite au",
     "final record": "dernier registre",
     "Plan": "Planifier",
@@ -37,7 +41,6 @@
     "Partnership or press": "Partenariat ou presse",
     "Message": "Message",
     "Send message": "Envoyer",
-    "This opens your email app with your message ready to send.": "Votre application de courriel s'ouvrira avec votre message prêt à envoyer.",
     "Home": "Accueil",
     "How It Works": "Comment ça marche",
     "For Trappers": "Pour les trappeurs",
@@ -307,6 +310,7 @@
     });
     attrs.forEach(({ el, a, en }) => el.setAttribute(a, lang === 'fr' ? FR[en] : en));
     document.documentElement.lang = lang;
+    window.trapT = (str) => (lang === 'fr' && FR[str]) || str; // for text set from script (e.g. form status)
     document.querySelectorAll('.lang-switch button').forEach((b) => {
       b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
     });
