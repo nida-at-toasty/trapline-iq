@@ -1194,3 +1194,4 @@ h1, h2, h3 { font-family: var(--sans); }
   .nav .lang-switch { height: 42px !important; padding: 3px !important; margin-right: 0; }
   .nav .lang-switch button { height: 34px !important; padding: 0 10px !important; }
 }
+.ft-cta > * { margin-top: 0 !important; margin-bottom: 0 !important; } /* button kept a hero top margin; centre it with the link */
