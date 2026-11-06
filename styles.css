@@ -1251,3 +1251,11 @@ a:active > img[src*="store-apple"], a:active > img[src*="store-google"] { transf
 .contact-form button:disabled { opacity: .6; cursor: progress; }
 /* Keep the hand and phone above the faded brand mark */
 .hero-visual .hero-phone { position: relative; z-index: 1; }
+/* French CTA heading runs longer: smaller type so it clears the store buttons */
+html[lang="fr"] .cta-copy h2 { font-size: 40px; line-height: 46px; width: 630px; }
+/* Nav labels stay on one line (French ones are longer); tighten spacing in French so it all fits */
+.nav .brand span, .nav-menu > a, .nav .btn-solid .text { white-space: nowrap; }
+@media (min-width: 761px) {
+  html[lang="fr"] .nav-right, html[lang="fr"] .nav-menu { gap: 24px; }
+  html[lang="fr"] .nav .btn-solid .text { font-size: 15px; }
+}
