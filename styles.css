@@ -1259,3 +1259,12 @@ html[lang="fr"] .cta-copy h2 { font-size: 40px; line-height: 46px; width: 630px;
   html[lang="fr"] .nav-right, html[lang="fr"] .nav-menu { gap: 24px; }
   html[lang="fr"] .nav .btn-solid .text { font-size: 15px; }
 }
+/* Privacy policy: show only the version matching the site language */
+.legal-fr { display: none; }
+html[lang="fr"] .legal-fr { display: block; }
+html[lang="fr"] .legal-en { display: none; }
+.legal-table { overflow-x: auto; margin: 16px 0 20px; }
+.legal-table table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.45; }
+.legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid rgba(46, 61, 25, 0.12); }
+.legal-table th { background: rgba(46, 61, 25, 0.06); font-weight: 600; }
+.legal-table td:first-child { width: 42%; font-weight: 500; }

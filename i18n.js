@@ -122,6 +122,8 @@
     "Subscribe": "S'abonner",
     "© 2026 Trapline IQ All rights reserved.": "© 2026 Trapline IQ. Tous droits réservés.",
     "Privacy Policy": "Politique de confidentialité",
+    "Legal": "Mentions légales",
+    "How Trapline IQ collects, uses and protects your information.": "Comment Trapline IQ recueille, utilise et protège vos renseignements.",
     "From first check to final record.": "De la première visite au dernier registre.",
     "One connected workflow for every trip, every trap, and every detail worth keeping. Plan before you head out, find your way in the field, and keep every record organized, even with no signal.": "Un seul flux de travail pour chaque sortie, chaque piège et chaque détail qui compte. Planifiez avant de partir, trouvez votre chemin sur le terrain et gardez chaque registre en ordre, même sans signal.",
     "The workflow": "Le fonctionnement",
